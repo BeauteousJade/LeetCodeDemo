@@ -1,9 +1,11 @@
 package binarySearch;
 
 /**
- * 搜索旋转排序数组
+ * 33. 搜索旋转排序数组
  * <p>
  * 找到有序的一边，如果target在有序的里面，直接在有序的里面找，否则就在另一边找。
+ * <p>
+ * https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
  */
 public class SearchDemo {
 

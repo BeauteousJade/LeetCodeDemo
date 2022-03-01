@@ -3,7 +3,9 @@ package bfs;
 import java.util.*;
 
 /**
- * 安排课程
+ * 210. 课程表 II
+ * <p>
+ * https://leetcode-cn.com/problems/course-schedule-ii/
  */
 public class FindOrderDemo {
 
@@ -17,20 +19,14 @@ public class FindOrderDemo {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         Map<Integer, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < prerequisites.length; i++) {
-
-            List<Integer> list = map.get(prerequisites[i][0]);
-            if (list == null) {
-                list = new ArrayList<>();
-                map.put(prerequisites[i][0], list);
-            }
+            List<Integer> list = map.computeIfAbsent(prerequisites[i][0], k -> new ArrayList<>());
             for (int j = 1; j < prerequisites[i].length; j++) {
                 list.add(prerequisites[i][j]);
             }
         }
         Queue<Integer> queue = new LinkedList<>();
         for (int value = 0; value < numCourses; value++) {
-            List<Integer> list = map.get(value);
-            if (list == null) {
+            if(!map.containsKey(value)){
                 queue.offer(value);
             }
         }
@@ -42,13 +38,12 @@ public class FindOrderDemo {
             Set<Integer> keySet = map.keySet();
             for (Integer key : keySet) {
                 List<Integer> list = map.get(key);
-                if (list == null) {
+                if (list.size() == 0) {
                     continue;
                 }
-                list.remove(value);
-                if (list.size() == 0) {
+                boolean isRemove = list.remove(value);
+                if (isRemove && list.size() == 0) {
                     queue.offer(key);
-                    map.put(key, null);
                 }
             }
             result[index++] = value;

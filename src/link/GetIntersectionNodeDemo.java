@@ -1,5 +1,10 @@
 package link;
 
+/**
+ * 160. 相交链表
+ * <p>
+ * https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+ */
 public class GetIntersectionNodeDemo {
 
     public static void main(String[] args) {

@@ -21,6 +21,7 @@ public class FindDuplicateDemo {
             int mid = (left + right) / 2;
             int count = 0;
             for (int i = 0; i < n; i++) {
+                // 计算小于mid的个数
                 if (nums[i] <= mid) {
                     count++;
                 }
@@ -36,6 +37,9 @@ public class FindDuplicateDemo {
     }
 
 
+    /**
+     * 判断环的方法。
+     */
     public int findDuplicateV2(int[] nums) {
         int slow = 0;
         int fast = 0;

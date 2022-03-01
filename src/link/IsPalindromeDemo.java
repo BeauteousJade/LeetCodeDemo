@@ -3,6 +3,11 @@ package link;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 234. 回文链表
+ * <p>
+ * https://leetcode-cn.com/problems/palindrome-linked-list/
+ */
 public class IsPalindromeDemo {
 
     public static void main(String[] args) {

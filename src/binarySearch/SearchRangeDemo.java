@@ -3,9 +3,9 @@ package binarySearch;
 import java.util.Arrays;
 
 /**
- * 39. 组合总和
+ * 34. 在排序数组中查找元素的第一个和最后一个位置
  * <p>
- * https://leetcode-cn.com/problems/combination-sum/
+ * https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
  */
 public class SearchRangeDemo {
 

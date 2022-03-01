@@ -11,22 +11,16 @@ import java.util.Comparator;
 public class FindMinArrowShotsDemo {
 
     public static void main(String[] args) {
-
+        FindMinArrowShotsDemo demo = new FindMinArrowShotsDemo();
+        demo.findMinArrowShots(new int[][]{{10, 16}, {2, 8}, {1, 6}, {7, 12}});
     }
 
     public int findMinArrowShots(int[][] points) {
         if (points.length == 0) {
             return 0;
         }
-        // 按右侧边界，从大到小排序
-        Arrays.sort(points, (o1, o2) -> {
-            if (o1[1] > o2[1]) {
-                return 1;
-            } else if (o1[1] < o2[1]) {
-                return -1;
-            }
-            return 0;
-        });
+        // 按右侧边界，从小到大排序
+        Arrays.sort(points, Comparator.comparingInt(o -> o[1]));
         int ans = 1;
         int[] pre = points[0];
         for (int[] array : points) {

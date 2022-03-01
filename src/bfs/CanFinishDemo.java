@@ -7,7 +7,6 @@ import java.util.*;
  * <p>
  * https://leetcode-cn.com/problems/course-schedule/
  */
-// TODO pangbingyu03
 public class CanFinishDemo {
 
     public static void main(String[] args) {
@@ -24,10 +23,8 @@ public class CanFinishDemo {
         }
         Queue<Integer> queue = new LinkedList<>();
         int count = 0;
-        boolean[] rec = new boolean[numCourses + 1];
         for (int i = 0; i < numCourses; i++) {
             if (!map.containsKey(i)) {
-                rec[i] = true;
                 queue.offer(i);
                 count++;
             }
@@ -40,7 +37,6 @@ public class CanFinishDemo {
                 boolean isRemove = list.remove(poll);
                 if (isRemove && list.size() == 0) {
                     count++;
-                    rec[key] = true;
                     queue.offer(key);
                 }
             }

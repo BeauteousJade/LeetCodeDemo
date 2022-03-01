@@ -16,6 +16,7 @@ import java.util.Map;
  * <p>
  * 前缀和。
  */
+// TODO pangbingyu
 public class CheckSubarraySumDemo {
 
     public static void main(String[] args) {
