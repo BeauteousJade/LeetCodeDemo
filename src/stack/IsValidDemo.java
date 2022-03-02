@@ -2,6 +2,11 @@ package stack;
 
 import java.util.Stack;
 
+/**
+ * 20. 有效的括号
+ * <p>
+ * https://leetcode-cn.com/problems/valid-parentheses/
+ */
 public class IsValidDemo {
 
     public static void main(String[] args) {

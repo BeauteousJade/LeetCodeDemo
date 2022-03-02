@@ -17,6 +17,9 @@ public class SortListDemo {
         return sortList(head, null);
     }
 
+    /**
+     * 类似归并排序
+     **/
     private ListNode sortList(ListNode head, ListNode tail) {
         if (head == null) {
             return null;
@@ -55,6 +58,7 @@ public class SortListDemo {
             }
             temp = temp.next;
         }
+        // TODO 这里注意。
         if (temp1 != null) {
             temp.next = temp1;
         } else if (temp2 != null) {

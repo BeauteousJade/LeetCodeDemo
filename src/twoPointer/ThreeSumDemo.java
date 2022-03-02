@@ -43,13 +43,9 @@ public class ThreeSumDemo {
                 list.add(nums[left]);
                 list.add(nums[right]);
                 result.add(list);
-                left++;
-                while (left < right && nums[left] == nums[left - 1]) {
-                    left++;
+                while (left < right && nums[++left] == nums[left - 1]) {
                 }
-                right--;
-                while (left < right && nums[right] == nums[right + 1]) {
-                    right--;
+                while (left < right && nums[--right] == nums[right + 1]) {
                 }
             } else if (target > nums[left] + nums[right]) {
                 left++;

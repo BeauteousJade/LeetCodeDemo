@@ -3,9 +3,11 @@ package prefix;
 import java.util.Arrays;
 
 /**
- * 除自身以外数组的乘积
+ * 238. 除自身以外数组的乘积
  * 给你一个长度为n的整数数组nums，其中n>1，返回输出数组output，其中output[i]等于nums中除nums[i]之外其余各元素的乘积。
  * 前缀和
+ * <p>
+ * https://leetcode-cn.com/problems/product-of-array-except-self/
  */
 public class ProductExceptSelfDemo {
 

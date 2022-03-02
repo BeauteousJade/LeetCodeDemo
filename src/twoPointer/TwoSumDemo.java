@@ -3,7 +3,9 @@ package twoPointer;
 import java.util.Arrays;
 
 /**
- * 两数之和
+ * 1.两数之和
+ * <p>
+ * https://leetcode-cn.com/problems/two-sum/
  */
 public class TwoSumDemo {
 

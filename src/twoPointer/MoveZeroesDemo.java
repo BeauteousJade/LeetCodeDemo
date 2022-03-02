@@ -2,6 +2,11 @@ package twoPointer;
 
 import java.util.Arrays;
 
+/**
+ * 283. 移动零
+ * <p>
+ * https://leetcode-cn.com/problems/move-zeroes/
+ */
 public class MoveZeroesDemo {
 
     public static void main(String[] args) {
@@ -23,6 +28,20 @@ public class MoveZeroesDemo {
                 left++;
             }
             right++;
+        }
+    }
+
+    public void moveZeroesV2(int[] nums) {
+        int indexNow = 0;
+        int indexNum = 0;
+        while (indexNow < nums.length) {
+            if(nums[indexNow] != 0){
+                nums[indexNum++] = nums[indexNow];
+            }
+            indexNow++;
+        }
+        for (int i = indexNum; i < nums.length;i++){
+            nums[i] = 0;
         }
     }
 }

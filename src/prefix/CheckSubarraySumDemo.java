@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 连续的子数组和.
+ * 523. 连续的子数组和
  * 给你一个整数数组 nums 和一个整数 k ，编写一个函数来判断该数组是否含有同时满足下述条件的连续子数组：
  * <p>
  * 子数组大小 至少为 2 ，且
@@ -15,8 +15,9 @@ import java.util.Map;
  * <p>
  * <p>
  * 前缀和。
+ * <p>
+ * https://leetcode-cn.com/problems/continuous-subarray-sum/
  */
-// TODO pangbingyu
 public class CheckSubarraySumDemo {
 
     public static void main(String[] args) {
@@ -37,6 +38,7 @@ public class CheckSubarraySumDemo {
         map.put(0, -1);
         int remainder = 0;
         for (int i = 0; i < m; i++) {
+            //当 prefixSums[q]−prefixSums[p] 为 k 的倍数时，prefixSums[p] 和prefixSums[q] 除以 k 的余数相同。
             remainder = (remainder + nums[i]) % k;
             if (map.containsKey(remainder)) {
                 int prevIndex = map.get(remainder);

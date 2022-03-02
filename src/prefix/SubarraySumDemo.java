@@ -3,8 +3,10 @@ package prefix;
 import java.util.HashMap;
 
 /**
- * 和为 K 的子数组
+ * 560. 和为 K 的子数组
  * 给你一个整数数组 nums 和一个整数 k ，请你统计并返回该数组中和为 k 的连续子数组的个数。
+ * <p>
+ * https://leetcode-cn.com/problems/subarray-sum-equals-k/
  */
 public class SubarraySumDemo {
 
@@ -31,7 +33,7 @@ public class SubarraySumDemo {
 
     public int subarraySumV2(int[] nums, int k) {
         int count = 0, pre = 0;
-        HashMap< Integer, Integer > mp = new HashMap < > ();
+        HashMap<Integer, Integer> mp = new HashMap<>();
         mp.put(0, 1);
         for (int i = 0; i < nums.length; i++) {
             pre += nums[i];

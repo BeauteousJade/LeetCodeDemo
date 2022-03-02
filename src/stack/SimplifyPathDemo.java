@@ -3,7 +3,9 @@ package stack;
 import java.util.Stack;
 
 /**
- * 简化路径
+ * 71. 简化路径
+ * <p>
+ * https://leetcode-cn.com/problems/simplify-path/
  */
 public class SimplifyPathDemo {
 
