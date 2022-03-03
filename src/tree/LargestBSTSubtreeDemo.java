@@ -8,8 +8,6 @@ package tree;
  */
 public class LargestBSTSubtreeDemo {
 
-    private int value = 0;
-
     public static void main(String[] args) {
 
     }

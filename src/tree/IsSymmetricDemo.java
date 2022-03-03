@@ -15,7 +15,7 @@ public class IsSymmetricDemo {
         if (root == null) {
             return true;
         }
-        return isSymmetric(root);
+        return isSymmetric(root.left, root.right);
     }
 
     private boolean isSymmetric(TreeNode left, TreeNode right) {
@@ -26,7 +26,7 @@ public class IsSymmetricDemo {
             return true;
         }
         if (left.val == right.val) {
-            return isSymmetric(left.left, right.left) && isSymmetric(left.right, right.right);
+            return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
         }
         return false;
     }

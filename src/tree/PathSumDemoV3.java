@@ -15,7 +15,7 @@ public class PathSumDemoV3 {
         if (root == null) {
             return 0;
         }
-        int count = pathSum(root, targetSum);
+        int count = pathSumInternal(root, targetSum);
         count += pathSum(root.right, targetSum);
         count += pathSum(root.left, targetSum);
         return count;

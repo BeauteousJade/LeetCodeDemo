@@ -7,6 +7,8 @@ package tree;
  * 本题中，一棵高度平衡二叉树定义为：
  * <p>
  * 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1 。
+ * <p>
+ * https://leetcode-cn.com/problems/balanced-binary-tree/
  */
 public class IsBalancedDemo {
 

@@ -17,7 +17,7 @@ public class MergeTreesDemo {
         }
         TreeNode newRoot = new TreeNode(root1 == null ? root2.val : (root2 == null ? root1.val : (root1.val + root2.val)));
         newRoot.left = mergeTrees(root1 == null ? null : root1.left, root2 == null ? null : root2.left);
-        newRoot.left = mergeTrees(root1 == null ? null : root1.right, root2 == null ? null : root2.right);
+        newRoot.right = mergeTrees(root1 == null ? null : root1.right, root2 == null ? null : root2.right);
         return newRoot;
     }
 }

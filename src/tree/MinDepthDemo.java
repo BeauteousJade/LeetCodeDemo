@@ -1,5 +1,10 @@
 package tree;
 
+/**
+ * 111. 二叉树的最小深度
+ * <p>
+ * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
+ */
 public class MinDepthDemo {
 
     public static void main(String[] args) {
