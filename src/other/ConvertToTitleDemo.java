@@ -4,6 +4,8 @@ package other;
  * 168. Excel表列名称
  * <p>
  * 进制转换。
+ * <p>
+ * https://leetcode-cn.com/problems/excel-sheet-column-title/
  */
 public class ConvertToTitleDemo {
 

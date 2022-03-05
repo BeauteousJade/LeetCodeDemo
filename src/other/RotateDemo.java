@@ -2,6 +2,11 @@ package other;
 
 import java.util.Arrays;
 
+/**
+ * 48. 旋转图像
+ * <p>
+ * https://leetcode-cn.com/problems/rotate-image/
+ */
 public class RotateDemo {
 
     public static void main(String[] args) {

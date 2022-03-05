@@ -10,6 +10,8 @@ import java.util.Arrays;
  * <p>
  * 注意：最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。
  * <p>
+ * <p>
+ * https://leetcode-cn.com/problems/merge-sorted-array/
  */
 public class MergeSortedArrayDemo {
 

@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 169. 多数元素
+ * <p>
+ * https://leetcode-cn.com/problems/majority-element/
+ */
 public class MajorityElementDemo {
 
     public static void main(String[] args) {

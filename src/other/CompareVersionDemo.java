@@ -1,7 +1,5 @@
 package other;
 
-import java.util.Map;
-
 /**
  * 165. 比较版本号
  * <p>
@@ -19,9 +17,8 @@ public class CompareVersionDemo {
         String[] strings2 = version2.split("\\.");
         int count = Math.min(strings1.length, strings2.length);
         for (int i = 0; i < count; i++) {
-            int value1 = Integer.valueOf(strings1[i]);
-            int value2 = Integer.valueOf(strings2[i]);
-            System.out.println(value1 + " " + value2);
+            int value1 = Integer.parseInt(strings1[i]);
+            int value2 = Integer.parseInt(strings2[i]);
             if (value1 > value2) {
                 return 1;
             } else if (value1 < value2) {
@@ -31,14 +28,14 @@ public class CompareVersionDemo {
 
         int index = count;
         while (index < strings1.length) {
-            int value1 = Integer.valueOf(strings1[index]);
+            int value1 = Integer.parseInt(strings1[index]);
             if (value1 != 0) {
                 return 1;
             }
             index++;
         }
         while (index < strings2.length) {
-            int value2 = Integer.valueOf(strings2[index]);
+            int value2 = Integer.parseInt(strings2[index]);
             if (value2 != 0) {
                 return -1;
             }

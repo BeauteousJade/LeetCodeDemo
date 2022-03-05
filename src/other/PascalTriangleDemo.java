@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 杨辉三角
+ * 118. 杨辉三角
+ * <p>
+ * https://leetcode-cn.com/problems/pascals-triangle/
  */
 public class PascalTriangleDemo {
 

@@ -1,7 +1,9 @@
 package other;
 
 /**
- * 整数翻转
+ * 7. 整数反转
+ * <p>
+ * https://leetcode-cn.com/problems/reverse-integer/
  */
 public class ReverseDemo {
 

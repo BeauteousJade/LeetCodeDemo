@@ -3,6 +3,11 @@ package other;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 658. 找到 K 个最接近的元素
+ * <p>
+ * https://leetcode-cn.com/problems/find-k-closest-elements/
+ */
 public class FindClosestElementsDemo {
 
     public static void main(String[] args) {
@@ -34,6 +39,7 @@ public class FindClosestElementsDemo {
             if (arr[i - 1] <= x && arr[i] >= x) {
                 right = i;
                 left = i - 1;
+                break;
             }
         }
         while (left >= 0 && right < arr.length && list.size() < k) {

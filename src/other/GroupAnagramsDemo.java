@@ -14,8 +14,6 @@ public class GroupAnagramsDemo {
         System.out.println(demo.groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
     }
 
-    private int[] array = new int[26];
-
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
         List<List<String>> res = new ArrayList<>();
@@ -32,7 +30,7 @@ public class GroupAnagramsDemo {
 
 
     private String getKey(String string) {
-        Arrays.fill(array, 0);
+        int[] array = new int[26];
         char[] charArray = string.toCharArray();
         for (int i = 0; i < charArray.length; i++) {
             array[charArray[i] - 'a']++;
