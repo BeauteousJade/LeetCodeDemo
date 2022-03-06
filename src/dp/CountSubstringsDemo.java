@@ -5,6 +5,7 @@ package dp;
  * <p>
  * https://leetcode-cn.com/problems/palindromic-substrings/
  */
+// TODO pangbinyu 重点
 public class CountSubstringsDemo {
 
     public static void main(String[] args) {

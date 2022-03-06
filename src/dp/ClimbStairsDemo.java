@@ -20,14 +20,12 @@ public class ClimbStairsDemo {
         if (n == 1) {
             return 1;
         }
-        int a = 0;
-        int b = 0;
-        int c = 1;
-        for (int i = 1; i <= n; i++) {
+        int a = 1;
+        int b = 2;
+        for (int i = 3; i <= n; i++) {
+            b = a + b;
             a = b;
-            b = c;
-            c = a + b;
         }
-        return c;
+        return b;
     }
 }
