@@ -26,6 +26,7 @@ public class NetworkDelayTimeDemo {
         System.out.println(demo.networkDelayTime(times, n, k));
     }
 
+    // TODO 重点
     public int networkDelayTime(int[][] times, int n, int k) {
         int[] cost = new int[n + 1];
         int[][] costRec = new int[n + 1][n + 1];

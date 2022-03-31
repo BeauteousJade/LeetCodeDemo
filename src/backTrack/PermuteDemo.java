@@ -8,7 +8,6 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/permutations/
  */
-// TODO 下次
 public class PermuteDemo {
 
     public static void main(String[] args) {

@@ -14,6 +14,7 @@ public class CanFinishDemo {
         System.out.println(demo.canFinish(2, new int[][]{{1, 0}}));
     }
 
+    // TODO 重点
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
         Map<Integer, List<Integer>> map = new HashMap<>();
