@@ -5,7 +5,6 @@ package dp;
  * <p>
  * https://leetcode-cn.com/problems/minimum-path-sum/
  */
-// TODO 下次
 public class MinPathSumDemo {
 
     public static void main(String[] args) {
