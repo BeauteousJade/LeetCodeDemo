@@ -49,6 +49,8 @@ public class FindTargetSumWaysDemo {
                 // 默认不选择 num[i - 1]
                 dp[i][j] = dp[i - 1][j];
                 if (j >= num) {
+                    // dp[i - 1][j]表示不选。
+                    // dp[i - 1][j - num]表示选。
                     dp[i][j] = dp[i - 1][j] + dp[i - 1][j - num];
                 }
             }
