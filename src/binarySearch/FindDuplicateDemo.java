@@ -12,6 +12,9 @@ public class FindDuplicateDemo {
         System.out.println(demo.findDuplicateV2(new int[]{1, 3, 4, 2, 2}));
     }
 
+    /**
+     * 解释：https://leetcode.cn/problems/find-the-duplicate-number/solution/mei-kan-dong-er-fen-cha-zhao-ti-jie-de-x-0ixw/
+     */
     public int findDuplicate(int[] nums) {
         final int n = nums.length;
         int ans = 0;
@@ -26,6 +29,8 @@ public class FindDuplicateDemo {
                     count++;
                 }
             }
+            // <=,答案肯定不在左边。
+            // 重复数：target,小于等于target的count > target。
             if (count <= mid) {
                 left = mid + 1;
             } else {

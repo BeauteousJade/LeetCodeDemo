@@ -7,7 +7,6 @@ import java.util.*;
  * <p>
  * https://leetcode-cn.com/problems/course-schedule/
  */
-// TODO pangbingyu03
 public class CanFinishDemo {
 
     public static void main(String[] args) {
