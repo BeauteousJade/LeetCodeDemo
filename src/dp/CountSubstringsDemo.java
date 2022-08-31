@@ -27,6 +27,7 @@ public class CountSubstringsDemo {
                 if (charArray[i] != charArray[j]) {
                     dp[i][j] = false;
                 } else {
+                    // j - 1 - (i + 1) < 1
                     dp[i][j] = j - i <= 2 || dp[i + 1][j - 1];
                 }
                 if (dp[i][j]) {
