@@ -33,8 +33,8 @@ public class MaxProfitDemo {
             return 0;
         }
         int n = prices.length;
-        // dp[i][0]:今天不持股
-        // dp[i][1]:今天持股
+        // dp[i][0]:今天不持股(不买)
+        // dp[i][1]:今天持股(买)
         int[][] dp = new int[n][2];
         dp[0][0] = 0;
         dp[0][1] = -prices[0];
