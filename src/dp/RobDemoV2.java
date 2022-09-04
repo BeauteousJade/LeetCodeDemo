@@ -18,6 +18,7 @@ public class RobDemoV2 {
             return nums[0];
         }
         int[] dp = new int[nums.length];
+        // 偷第一家
         dp[0] = nums[0];
         int max = dp[0];
         for (int i = 1; i < nums.length - 1; i++) {
@@ -25,6 +26,7 @@ public class RobDemoV2 {
             max = Math.max(dp[i], max);
         }
 
+        // 不偷第一个家
         dp[0] = 0;
         dp[1] = nums[1];
         max = Math.max(max, dp[1]);

@@ -9,6 +9,7 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/reverse-linked-list/
  */
+// TODO 重点
 public class ReverseListDemo {
 
     public static void main(String[] args) {

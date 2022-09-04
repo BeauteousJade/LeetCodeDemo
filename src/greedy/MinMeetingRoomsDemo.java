@@ -17,6 +17,9 @@ public class MinMeetingRoomsDemo {
 
     }
 
+    /**
+     * 如果计算的是重复的最大个数，以start排序；如果计算的没有重叠的个数，以end排序。
+     */
     public int minMeetingRooms(int[][] intervals) {
         if (intervals.length == 0) {
             return 0;

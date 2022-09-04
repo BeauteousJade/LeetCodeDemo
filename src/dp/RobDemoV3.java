@@ -19,6 +19,7 @@ public class RobDemoV3 {
         return Math.max(res[0], res[1]);
     }
 
+    // TODO 重点
     private int[] robInternal(TreeNode root) {
         if (root == null) {
             return new int[]{0, 0};

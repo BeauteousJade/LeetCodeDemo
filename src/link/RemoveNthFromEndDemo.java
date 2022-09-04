@@ -8,6 +8,7 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
  */
+// TODO 重点
 public class RemoveNthFromEndDemo {
 
     public static void main(String[] args) {
