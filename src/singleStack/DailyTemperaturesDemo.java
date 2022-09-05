@@ -9,7 +9,6 @@ import java.util.Stack;
  * <p>
  * 单调栈
  */
-// TODO 下次
 public class DailyTemperaturesDemo {
 
     public static void main(String[] args) {
@@ -26,7 +25,6 @@ public class DailyTemperaturesDemo {
             while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
                 int preIndex = stack.pop();
                 result[preIndex] = i - preIndex;
-
             }
             stack.push(i);
         }

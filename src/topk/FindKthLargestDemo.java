@@ -21,10 +21,12 @@ public class FindKthLargestDemo {
     }
 
     public int findKthLargest(int[] nums, int k) {
+        // 从小到大排序
         Queue<Integer> queue = new PriorityQueue<>(Comparator.naturalOrder());
         for (int value : nums) {
             queue.offer(value);
             if (queue.size() > k) {
+                // 弹出小的，就从小到大排序(第K大)。弹出大的，就从大道小排序(第K小)。
                 queue.poll();
             }
         }

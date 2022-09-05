@@ -14,6 +14,7 @@ public class KthSmallestDemo {
     }
 
     public int kthSmallest(int[][] matrix, int k) {
+        // 从大到小。
         Queue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
 
         for (int i = 0; i < matrix.length; i++) {

@@ -8,6 +8,7 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
  */
+// TODO 下次
 public class FlattenDemo {
 
     public static void main(String[] args) {
