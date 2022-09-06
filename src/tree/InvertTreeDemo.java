@@ -19,7 +19,7 @@ public class InvertTreeDemo {
         TreeNode right = root.right;
         invertTree(left);
         invertTree(right);
-        root.left = root;
+        root.left = right;
         root.right = left;
         return root;
     }
