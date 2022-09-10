@@ -1,7 +1,9 @@
-package other;
+package twoPointer;
 
 /**
  * 删除有序数组中的重复项
+ * <p>
+ * https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
  */
 public class RemoveDuplicatesDemo {
 
