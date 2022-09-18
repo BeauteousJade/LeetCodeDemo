@@ -1,8 +1,10 @@
-package other;
+package greedy;
 
 /**
  * 55. 跳跃游戏
+ * <p>
  * https://leetcode-cn.com/problems/jump-game/
+ * 贪心。
  */
 public class CanJumpDemo {
 
