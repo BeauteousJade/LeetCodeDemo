@@ -38,4 +38,14 @@ public class SwapPairsDemo {
         list.get(list.size() - 1).next = null;
         return list.get(0);
     }
+
+    public ListNode swapPairsV2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode next = head.next;
+        head.next = swapPairsV2(next.next);
+        next.next = head;
+        return next;
+    }
 }
