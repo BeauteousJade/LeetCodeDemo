@@ -21,7 +21,7 @@ public class MaxSlidingWindowDemo {
     public int[] maxSlidingWindow(int[] nums, int k) {
 
         int[] res = new int[nums.length - k + 1];
-        // 按照值从小到排序，按照index从大大小排序。
+        // 按照值从小到排序，按照index从大到小排序(降序、升序都一样)。
         Queue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {

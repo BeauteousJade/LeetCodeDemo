@@ -44,7 +44,7 @@ public class QuickSortDemo {
             quickSort(array, low, left - 1);
         }
         if (right < high) {
-            quickSort(array, right - 1, high);
+            quickSort(array, right + 1, high);
         }
     }
 }

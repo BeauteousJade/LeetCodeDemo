@@ -11,7 +11,7 @@ public class PathSumDemoV3 {
 
     }
 
-    public int pathSum(TreeNode root, int targetSum) {
+    public int pathSum(TreeNode root, long targetSum) {
         if (root == null) {
             return 0;
         }
@@ -21,15 +21,15 @@ public class PathSumDemoV3 {
         return count;
     }
 
-    private int pathSumInternal(TreeNode root, int targetSum) {
+    private int pathSumInternal(TreeNode root, long targetSum) {
         if (root == null) {
             return 0;
         }
         int count = 0;
         if (root.val == targetSum) {
+            // 可能子树存在负数，所以不能return。
             count++;
         }
-
         count += pathSumInternal(root.left, targetSum - root.val);
         count += pathSumInternal(root.right, targetSum - root.val);
         return count;
