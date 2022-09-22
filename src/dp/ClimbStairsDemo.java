@@ -14,18 +14,12 @@ public class ClimbStairsDemo {
     }
 
     public int climbStairs(int n) {
-        if (n == 0) {
-            return 0;
+        int p = 0, q = 0, r = 1;
+        for (int i = 1; i <= n; ++i) {
+            p = q;
+            q = r;
+            r = p + q;
         }
-        if (n == 1) {
-            return 1;
-        }
-        int a = 1;
-        int b = 2;
-        for (int i = 3; i <= n; i++) {
-            b = a + b;
-            a = b;
-        }
-        return b;
+        return r;
     }
 }
