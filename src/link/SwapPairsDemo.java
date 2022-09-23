@@ -40,12 +40,14 @@ public class SwapPairsDemo {
     }
 
     public ListNode swapPairsV2(ListNode head) {
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
-        ListNode next = head.next;
-        head.next = swapPairsV2(next.next);
-        next.next = head;
-        return next;
+        ListNode one = head;
+        ListNode two = head.next;
+        ListNode three = two.next;
+        two.next = one;
+        one.next = swapPairsV2(three);
+        return two;
     }
 }

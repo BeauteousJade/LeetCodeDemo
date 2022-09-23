@@ -5,7 +5,6 @@ package dp;
  * <p>
  * https://leetcode.cn/problems/edit-distance/?favorite=2cktkvj
  */
-// TODO 下次
 public class MinDistanceDemo {
 
 
@@ -29,6 +28,9 @@ public class MinDistanceDemo {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
+                    // dp[i-1][j]:删除word1最后一个字符。
+                    // dp[i][j-1]:word2最后添加一个字符
+                    // dp[i-1][j-1]:替换。
                     dp[i][j] = Math.min(Math.min(dp[i - 1][j - 1], dp[i][j - 1]), dp[i - 1][j]) + 1;
                 }
             }

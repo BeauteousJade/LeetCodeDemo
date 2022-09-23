@@ -20,9 +20,11 @@ public class RobDemoV2 {
         int[] dp = new int[nums.length];
         // 偷第一家
         dp[0] = nums[0];
+        // 不偷第二家，所以直接继承第一家。
+        dp[1] = dp[0];
         int max = dp[0];
-        for (int i = 1; i < nums.length - 1; i++) {
-            dp[i] = i >= 2 ? Math.max(dp[i - 2] + nums[i], dp[i - 1]) : dp[i - 1];
+        for (int i = 2; i < nums.length - 1; i++) {
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
             max = Math.max(dp[i], max);
         }
 

@@ -1,6 +1,6 @@
 package link;
 
-import java.math.BigDecimal;
+import java.util.Stack;
 
 /**
  * 445. 两数相加 II
@@ -14,24 +14,31 @@ public class AddTwoNumbersDemoV2 {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        StringBuilder value1 = new StringBuilder();
-        StringBuilder value2 = new StringBuilder();
+        Stack<Integer> stack1 = new Stack<>();
         while (l1 != null) {
-            value1.append(l1.val);
+            stack1.push(l1.val);
             l1 = l1.next;
         }
+        Stack<Integer> stack2 = new Stack<>();
         while (l2 != null) {
-            value2.append(l2.val);
+            stack2.push(l2.val);
             l2 = l2.next;
         }
-        BigDecimal bigDecimal = new BigDecimal(value1.toString());
-        char[] charArray = bigDecimal.add(new BigDecimal(value2.toString())).toString().toCharArray();
-        ListNode listNode = new ListNode(charArray[0] - '0');
-        ListNode header = listNode;
-        for (int i = 1; i < charArray.length; i++) {
-            listNode.next = new ListNode(charArray[0] - '0');
-            listNode = listNode.next;
+
+        int add = 0;
+        ListNode nextNode = null;
+        ListNode resNode = null;
+        while (!stack1.isEmpty() || !stack2.isEmpty()) {
+            int value = (stack1.isEmpty() ? 0 : stack1.pop()) + (stack2.isEmpty() ? 0 : stack2.pop()) + add;
+            resNode = new ListNode(value % 10);
+            resNode.next = nextNode;
+            nextNode = resNode;
+            add = value / 10;
         }
-        return header;
+        if (add != 0) {
+            resNode = new ListNode(add % 10);
+            resNode.next = nextNode;
+        }
+        return resNode;
     }
 }
