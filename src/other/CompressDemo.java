@@ -7,6 +7,7 @@ import java.util.Arrays;
  * <p>
  * https://leetcode-cn.com/problems/string-compression/
  */
+// TODO 重点
 public class CompressDemo {
 
     public static void main(String[] args) {
