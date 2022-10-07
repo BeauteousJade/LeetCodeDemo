@@ -18,7 +18,7 @@ public class NextPermutationDemo {
      *   1 1
      * 1 1 1 1
      * 1 1 1 1 1
-     * -       -
+     * -   -
      *
      * 1. 选择
      * 2. 交换

@@ -17,7 +17,7 @@ public class ReverseDemo {
         if (x == 0) {
             return 0;
         }
-        int value = 0;
+        long value = 0;
         while (x != 0) {
             if (Math.abs(value) > Integer.MAX_VALUE / 10 || Math.abs(value) * 10 > Integer.MAX_VALUE - Math.abs(x % 10)) {
                 return 0;
@@ -25,6 +25,6 @@ public class ReverseDemo {
             value = value * 10 + x % 10;
             x = x / 10;
         }
-        return value;
+        return (int) value;
     }
 }

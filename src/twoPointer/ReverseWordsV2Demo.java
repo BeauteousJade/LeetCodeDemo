@@ -21,7 +21,6 @@ public class ReverseWordsV2Demo {
         int length = s.length;
         // 全部反向
         reverseRange(s, 0, length - 1);
-        System.out.println(Arrays.toString(s));
         int start = 0;
         for (int i = 0; i < length; i++) {
             if (s[i] == ' ') {
