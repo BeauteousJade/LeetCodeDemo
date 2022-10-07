@@ -10,7 +10,6 @@ import java.util.Queue;
 public class KthSmallestDemo {
 
     public static void main(String[] args) {
-
     }
 
     public int kthSmallest(int[][] matrix, int k) {
