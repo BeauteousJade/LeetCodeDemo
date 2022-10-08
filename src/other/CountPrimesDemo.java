@@ -23,7 +23,7 @@ public class CountPrimesDemo {
             if (isPrime[i] == 1) {
                 ans += 1;
                 // 注意强转。
-                if ((long) i + i < n) {
+                if ((long) i * i < n) {
                     // 从 i * i，开始，因为2 * i,3 * i等已经被标记了。
                     for (int j = i * i; j < n; j += i) {
                         isPrime[j] = 0;
