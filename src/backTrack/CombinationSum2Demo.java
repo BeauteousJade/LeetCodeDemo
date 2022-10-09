@@ -19,22 +19,26 @@ public class CombinationSum2Demo {
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         boolean[] rec = new boolean[candidates.length];
-        backTrack(new ArrayList<>(), candidates, rec, target, 0, 0);
+        backTrack(candidates, rec, target, 0, 0);
         return result;
     }
 
 
-    private void backTrack(List<Integer> list, int[] candidates, boolean[] rec, int target, int sum, int index) {
+    private void backTrack(int[] candidates, boolean[] rec, int target, int sum, int index) {
         if (sum == target) {
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < rec.length; i++) {
+                if (rec[i]) {
+                    list.add(candidates[i]);
+                }
+            }
             result.add(new ArrayList<>(list));
         } else {
             for (int i = index; i < candidates.length; i++) {
                 if (sum + candidates[i] <= target && !rec[i] && !skip(candidates, rec, candidates[i], i)) {
-                    list.add(candidates[i]);
                     rec[i] = true;
-                    backTrack(list, candidates, rec, target, sum + candidates[i], i + 1);
+                    backTrack(candidates, rec, target, sum + candidates[i], i + 1);
                     rec[i] = false;
-                    list.remove(list.size() - 1);
                 }
             }
         }
