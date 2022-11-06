@@ -34,7 +34,6 @@ public class MinTotalDistanceDemo {
         queue.offer(new int[]{0, row, col});
         boolean[][] rec = new boolean[grid.length][grid[0].length];
         int res = 0;
-        Set<String> set = new HashSet<>();
         while (!queue.isEmpty()) {
             int[] poll = queue.poll();
 
