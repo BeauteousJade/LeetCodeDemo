@@ -13,6 +13,9 @@ public class FindMaxConsecutiveOnesDemo {
         System.out.println(demo.findMaxConsecutiveOnesV2(new int[]{1, 1, 0, 1, 0}));
     }
 
+    /**
+     * 前缀和方式
+     */
     public int findMaxConsecutiveOnes(int[] nums) {
         int n = nums.length;
         int[] prefix = new int[n];
@@ -71,6 +74,9 @@ public class FindMaxConsecutiveOnesDemo {
         return res;
     }
 
+    /**
+     * V2的压缩版
+     */
     public int findMaxConsecutiveOnesV3(int[] nums) {
         int n = nums.length;
         int dp0 = 0;
