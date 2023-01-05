@@ -1,7 +1,7 @@
 
 # 目录和算法对应关系
 
-> 1.[array](src/array) -- 数组
+> 1. [array](src/array) -- 数组
 > 2. [backTrack](src/backTrack) -- 回溯
 > 3. [bfs](src/bfs) -- 广度优先搜索
 > 4. [binarySearch](src/binarySearch) -- 二分搜索
