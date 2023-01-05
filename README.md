@@ -1,4 +1,4 @@
-> 1. array -- 数组
+> 1. [array](src/array) -- 数组
 > 2. backTrack -- 回溯
 > 3. bfs -- 广度优先搜索
 > 4. binarySearch -- 二分搜索
