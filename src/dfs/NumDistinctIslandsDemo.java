@@ -44,6 +44,7 @@ public class NumDistinctIslandsDemo {
         dfs(i - 1, j, 2, grid, sb);
         dfs(i, j + 1, 3, grid, sb);
         dfs(i, j - 1, 4, grid, sb);
+        // 这里不能删除，只能记一个反方向的信息。如果使用删除的话，当遍历完成，sb是一个空串。
         sb.append(-dir);
     }
 }
