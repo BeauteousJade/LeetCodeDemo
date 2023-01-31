@@ -76,6 +76,6 @@ public class CommonSearchDemo {
             }
         }
         // 谁前进或者后退，最后就选择哪一个。
-        return left < nums.length && nums[left] == target ? left : -1;
+        return nums[left] == target ? left : -1;
     }
 }
