@@ -78,4 +78,26 @@ public class CommonSearchDemo {
         // 谁前进或者后退，最后就选择哪一个。
         return nums[left] == target ? left : -1;
     }
+
+
+    /**
+     * 正确写法2.
+     */
+    public int searchV4(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        // 注意等于符号。
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int value = nums[mid];
+            if (value == target) {
+                return mid;
+            } else if (value < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
 }
