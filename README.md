@@ -27,3 +27,4 @@
 > 24. [topologicalSort](src/topologicalSort) -- 拓扑排序
 > 25. [tree](src/tree) -- 树
 > 26. [twoPointer](src/twoPointer) -- 双指针
+> 27. [simulation](src/simulation) -- 模拟
