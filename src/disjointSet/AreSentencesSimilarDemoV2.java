@@ -65,13 +65,13 @@ public class AreSentencesSimilarDemoV2 {
         String nextWord = map.get(word);
         if (!Objects.equals(word, nextWord) && nextWord != null) {
             // 这里有两种写法：
-            // 1. 不return，赋值和递归。坏处是:有可能会形成环;好处是:时间快。
-            // 2. 直接 return。坏处是：时间慢；好处是：不会形成环。
-            // 一般经验告诉我们：优先使用不 return的方法。如果有环的话，可以通过整数数组来代替map.
-//            map.put(word, find(nextWord));
-            return find(nextWord);
+            // 1. 不return，赋值和递归，最后获取新的值。
+            // 2. 直接 return。
+            map.put(word, find(nextWord));
+            // return find(nextWord);
         }
-        return nextWord;
+        // 这里一定要重新获取一遍新的值。
+        return map.get(word);
     }
 
     private void add(String word1, String word2) {
