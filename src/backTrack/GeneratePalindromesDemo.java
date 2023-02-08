@@ -45,8 +45,7 @@ public class GeneratePalindromesDemo {
             res.add(stringBuilder.toString());
         } else {
             for (int i = 0; i < array.length; i++) {
-                // 这里为了过滤相同字符，相同字符只取第一次出现的递归。
-                if (array[i] == 0 || stringBuilder.length() > 0 && array[i] == stringBuilder.charAt(stringBuilder.length() - 1)) {
+                if (array[i] == 0) {
                     continue;
                 }
                 stringBuilder.append((char) (i + 'a'));
