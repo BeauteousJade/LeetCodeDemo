@@ -15,7 +15,8 @@ public class WordPatternMatchDemo {
 
     public static void main(String[] args) {
         WordPatternMatchDemo demo = new WordPatternMatchDemo();
-        System.out.println(demo.wordPatternMatch("sucks", "teezmmmmteez"));
+//        System.out.println(demo.wordPatternMatch("sucks", "teezmmmmteez"));
+        System.out.println(demo.wordPatternMatch("d", "e"));
     }
 
     public boolean wordPatternMatch(String pattern, String s) {
@@ -27,10 +28,12 @@ public class WordPatternMatchDemo {
 
 
     private void dfs(Map<Character, String> map, char[] array1, int startIndex1, String string, int startIndex2) {
+        if (isRes) {
+            return;
+        }
         if (startIndex1 == array1.length) {
-//            System.out.println(map.toString());
-            isRes = isRes || startIndex2 == string.length();
-        } else if (!isRes) {
+            isRes = startIndex2 == string.length();
+        } else {
             char c = array1[startIndex1];
             String s = map.get(c);
             if (s != null && string.length() - startIndex2 >= s.length()) {
@@ -39,13 +42,13 @@ public class WordPatternMatchDemo {
                     dfs(map, array1, startIndex1 + 1, string, startIndex2 + s.length());
                 }
             } else if (s == null) {
-                for (int i = startIndex2 + 1; i < string.length(); i++) {
-                    String subString = string.substring(startIndex2, i);
+                for (int i = startIndex2; i < string.length(); i++) {
+                    String subString = string.substring(startIndex2, i + 1);
                     if (!check(subString, map)) {
                         continue;
                     }
                     map.put(c, subString);
-                    dfs(map, array1, startIndex1 + 1, string, i);
+                    dfs(map, array1, startIndex1 + 1, string, i + 1);
                     map.remove(c);
                 }
             }
