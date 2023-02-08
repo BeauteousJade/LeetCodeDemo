@@ -23,25 +23,25 @@ public class GenerateAbbreviationsDemo {
     }
 
 
-    private void backTrack(List<String> res, StringBuilder stringBuilder, String word, int i, int k) {
+    private void backTrack(List<String> res, StringBuilder stringBuilder, String word, int index, int count) {
         int length = stringBuilder.length();
-        if (i == word.length()) {
-            if (k != 0) {
-                stringBuilder.append(k);
+        if (index == word.length()) {
+            if (count != 0) {
+                stringBuilder.append(count);
             }
             res.add(stringBuilder.toString());
         } else {
 
             // 1. 将当前字符省略。
-            backTrack(res, stringBuilder, word, i + 1, k + 1);
+            backTrack(res, stringBuilder, word, index + 1, count + 1);
 
 
             // 2. 不省略当前字符。
-            if (k != 0) {
-                stringBuilder.append(k);
+            if (count != 0) {
+                stringBuilder.append(count);
             }
-            stringBuilder.append(word.charAt(i));
-            backTrack(res, stringBuilder, word, i + 1, 0);
+            stringBuilder.append(word.charAt(index));
+            backTrack(res, stringBuilder, word, index + 1, 0);
         }
         // 重置
         stringBuilder.setLength(length);
