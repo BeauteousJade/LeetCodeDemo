@@ -9,7 +9,7 @@ public class FindDuplicateDemo {
 
     public static void main(String[] args) {
         FindDuplicateDemo demo = new FindDuplicateDemo();
-        System.out.println(demo.findDuplicateV2(new int[]{1, 3, 4, 2, 2}));
+        System.out.println(demo.findDuplicate(new int[]{1, 3, 4, 2, 2}));
     }
 
     /**
@@ -17,10 +17,9 @@ public class FindDuplicateDemo {
      */
     public int findDuplicate(int[] nums) {
         final int n = nums.length;
-        int ans = 0;
         int left = 0;
         int right = n - 1;
-        while (left <= right) {
+        while (left < right) {
             int mid = (left + right) / 2;
             int count = 0;
             for (int i = 0; i < n; i++) {
@@ -34,11 +33,10 @@ public class FindDuplicateDemo {
             if (count <= mid) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
-                ans = mid;
+                right = mid;
             }
         }
-        return ans;
+        return left;
     }
 
 
