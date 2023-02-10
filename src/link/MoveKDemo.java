@@ -17,45 +17,47 @@ public class MoveKDemo {
 
     private ListNode test(ListNode head, int k) {
         // 记录当前小于K左侧的最后一个节点。
-        ListNode node = null;
+        ListNode lastKNode = null;
         // 当前节点，用来遍历。
-        ListNode newHead = head;
+        ListNode currentNode = head;
         // 当前节点的上一个节点。
-        ListNode preHead = null;
+        ListNode preNode = null;
         // 新的头节点。
-        ListNode listNode = null;
-        while (newHead != null) {
-            ListNode next = newHead.next;
+        ListNode newHead = null;
+        while (currentNode != null) {
+            ListNode next = currentNode.next;
             // 如果当前节点小于K，那么需要移动当前节点。
-            if (newHead.val < k) {
-                // 如果node不为空，那么就直接将newHead放在node的后面。
-                if (node != null) {
-                    ListNode nextNode = node.next;
-                    node.next = newHead;
-                    newHead.next = nextNode;
+            if (currentNode.val < k) {
+                // 如果lastKNode不为空，那么就直接将currentNode放在lastKNode的后面。
+                if (lastKNode != null) {
+                    ListNode nextNode = lastKNode.next;
+                    lastKNode.next = currentNode;
+                    currentNode.next = nextNode;
+                    lastKNode = lastKNode.next;
                 } else {
-                    // 如果node为空，需要更新node节点
+                    // 如果lastKNode为空，需要更新lastKNode节点
 
-                    // 如果head == newHead,表示是第一个节点，直接赋值
-                    if (newHead == head) {
-                        node = newHead;
+                    // 如果head == currentNode,表示是第一个节点，直接赋值
+                    if (currentNode == head) {
+                        lastKNode = currentNode;
                     } else {
-                        // 如果不是，那么就将newHead赋值给node，且将node节点插入到第一个。
-                        newHead.next = head;
-                        node = newHead;
-                        listNode = newHead;
+                        // 如果不是，那么就将currentNode赋值给lastKNode，且将lastKNode节点插入到第一个。
+                        currentNode.next = head;
+                        lastKNode = currentNode;
+                        newHead = currentNode;
                     }
                 }
                 // 删除原来的newHead节点。
-                if (preHead != null) {
-                    preHead.next = next;
+                if (preNode != null) {
+                    preNode.next = next;
                 }
             } else {
-                // 小于K的时候，因为移动了newHead,所以preHead没有变，不需要更新。
-                preHead = newHead;
+                // 小于K的时候，因为移动了currentNode,所以preNode没有变，不需要更新。
+                // 所以只在大于K，才更新preNode.
+                preNode = currentNode;
             }
-            newHead = next;
+            currentNode = next;
         }
-        return listNode == null ? head : listNode;
+        return newHead == null ? head : newHead;
     }
 }
