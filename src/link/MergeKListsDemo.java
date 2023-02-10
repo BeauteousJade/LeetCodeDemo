@@ -24,9 +24,9 @@ public class MergeKListsDemo {
         ListNode listNode = new ListNode(0);
         ListNode head = listNode;
 
-        boolean isEnd = true;
+        boolean isEnd = false;
 
-        while (isEnd) {
+        while (!isEnd) {
             int index = 0;
             ListNode midNode = null;
             for (int i = 0; i < lists.length; i++) {
@@ -40,7 +40,7 @@ public class MergeKListsDemo {
             if (midNode != null) {
                 lists[index] = midNode.next;
             }
-            isEnd = midNode != null;
+            isEnd = midNode == null;
         }
         return head.next;
     }
