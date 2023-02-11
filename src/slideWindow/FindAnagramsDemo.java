@@ -31,7 +31,7 @@ public class FindAnagramsDemo {
         int validCount = 0;
         List<Integer> list = new ArrayList<>();
         while (right < s.length()) {
-            char c = charArray[right++];
+            char c = charArray[right];
             if (need.containsKey(c)) {
                 int newCount = map.getOrDefault(c, 0) + 1;
                 map.put(c, newCount);
@@ -40,7 +40,7 @@ public class FindAnagramsDemo {
                 }
             }
             while (validCount == need.size()) {
-                if (right - left == p.length()) {
+                if (right - left + 1 == p.length()) {
                     list.add(left);
                 }
                 c = charArray[left++];
@@ -52,6 +52,7 @@ public class FindAnagramsDemo {
                     map.put(c, newCount - 1);
                 }
             }
+            right++;
         }
         return list;
     }
