@@ -30,14 +30,14 @@ public class MinWindowDemo {
         int start = 0;
         int length = Integer.MAX_VALUE;
         while (right < s.length()) {
-            char c = s.charAt(right++);
+            char c = s.charAt(right);
             if (need.containsKey(c)) {
                 map.put(c, map.getOrDefault(c, 0) + 1);
                 if (Objects.equals(map.get(c), need.get(c))) {
                     validCount++;
                 }
             }
-            while (validCount == need.size() && left < right) {
+            while (validCount == need.size()) {
                 if (right - left + 1 < length) {
                     length = right - left + 1;
                     start = left;
@@ -51,7 +51,8 @@ public class MinWindowDemo {
                     map.put(c1, map.getOrDefault(c1, 0) - 1);
                 }
             }
+            right++;
         }
-        return length == Integer.MAX_VALUE ? "" : s.substring(start, start + length - 1);
+        return length == Integer.MAX_VALUE ? "" : s.substring(start, start + length);
     }
 }
