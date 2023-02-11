@@ -36,4 +36,11 @@ public class MaxDepthDemo {
         return res;
     }
 
+    public int maxDepthV2(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + Math.max(maxDepthV2(root.left), maxDepthV2(root.right));
+    }
+
 }
