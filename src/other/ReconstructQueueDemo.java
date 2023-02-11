@@ -31,7 +31,7 @@ public class ReconstructQueueDemo {
         for (int[] person : people) {
             int spaces = person[1] + 1;
             for (int i = 0; i < n; ++i) {
-                // 如果不为null, 表示当前person的高度 > 第i 个Person的高度。那么直接跳过，因为第i 个Person不会算在>=当前person高度的count中。
+                // 如果ans[i]不为空，表示当前位置已经被占了，所以需要过滤。
                 if (ans[i] == null) {
                     --spaces;
                     if (spaces == 0) {
