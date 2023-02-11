@@ -14,37 +14,20 @@ public class AddStringsDemo {
     }
 
     public String addStrings(String num1, String num2) {
-
-        int length = Math.min(num1.length() - 1, num2.length() - 1);
-        int index = 0;
         int add = 0;
-
+        int index1 = num1.length() - 1;
+        int index2 = num2.length() - 1;
         StringBuilder stringBuilder = new StringBuilder();
-        while (index <= length) {
-            int value = num1.charAt(num1.length() - index - 1) - '0' + num2.charAt(num2.length() - index - 1) - '0' + add;
-            stringBuilder.insert(0, value % 10);
-            add = value / 10;
-            index++;
+        while (index1 >= 0 || index2 >= 0) {
+            int a = index1 >= 0 ? num1.charAt(index1--) - '0' : 0;
+            int b = index2 >= 0 ? num2.charAt(index2--) - '0' : 0;
+            int res = a + b + add;
+            stringBuilder.append(res % 10);
+            add = res / 10;
         }
-
-        while (index < num1.length()) {
-            int value = num1.charAt(num1.length() - index - 1) - '0' + add;
-            stringBuilder.insert(0, value % 10);
-            add = value / 10;
-            index++;
-        }
-
-        while (index < num2.length()) {
-            int value = num2.charAt(num2.length() - index - 1) - '0' + add;
-            stringBuilder.insert(0, value % 10);
-            add = value / 10;
-            index++;
-        }
-
         if (add != 0) {
-            stringBuilder.insert(0, add);
+            stringBuilder.append(add);
         }
-
-        return stringBuilder.toString();
+        return stringBuilder.reverse().toString();
     }
 }
