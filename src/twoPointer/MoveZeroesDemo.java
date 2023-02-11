@@ -32,15 +32,15 @@ public class MoveZeroesDemo {
     }
 
     public void moveZeroesV2(int[] nums) {
-        int indexNow = 0;
-        int indexNum = 0;
-        while (indexNow < nums.length) {
-            if(nums[indexNow] != 0){
-                nums[indexNum++] = nums[indexNow];
+        int fastIndex = 0;
+        int slowIndex = 0;
+        while (fastIndex < nums.length) {
+            if (nums[fastIndex] != 0) {
+                nums[slowIndex++] = nums[fastIndex];
             }
-            indexNow++;
+            fastIndex++;
         }
-        for (int i = indexNum; i < nums.length;i++){
+        for (int i = slowIndex; i < nums.length; i++) {
             nums[i] = 0;
         }
     }

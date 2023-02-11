@@ -1,7 +1,7 @@
 package twoPointer;
 
 /**
- * 删除有序数组中的重复项
+ * 26. 删除有序数组中的重复项
  * <p>
  * https://leetcode.cn/problems/remove-duplicates-from-sorted-array/
  */
@@ -17,14 +17,14 @@ public class RemoveDuplicatesDemo {
         if (n == 0) {
             return 0;
         }
-        int fast = 1, slow = 1;
-        while (fast < n) {
-            if (nums[fast] != nums[fast - 1]) {
-                nums[slow] = nums[fast];
-                ++slow;
+        int fastIndex = 1;
+        int slowIndex = 1;
+        while (fastIndex < n) {
+            if (nums[fastIndex] != nums[fastIndex - 1]) {
+                nums[slowIndex++] = nums[fastIndex];
             }
-            ++fast;
+            fastIndex++;
         }
-        return slow;
+        return slowIndex;
     }
 }
