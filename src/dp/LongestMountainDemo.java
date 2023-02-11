@@ -17,11 +17,13 @@ public class LongestMountainDemo {
         if (arr == null || arr.length == 0) {
             return 0;
         }
-        int left[] = new int[arr.length];
+        // left 记录最长递增序列
+        int[] left = new int[arr.length];
         for (int i = 1; i < arr.length; i++) {
             left[i] = arr[i] > arr[i - 1] ? left[i - 1] + 1 : 0;
         }
-        int right[] = new int[arr.length];
+        // right 记录最长递减序列
+        int[] right = new int[arr.length];
         for (int i = arr.length - 2; i >= 0; i--) {
             right[i] = arr[i] > arr[i + 1] ? right[i + 1] + 1 : 0;
         }
