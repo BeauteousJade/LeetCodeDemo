@@ -20,7 +20,9 @@ public class ClosestKValuesDemo {
 
 
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
+        // 升序排列。
         Queue<Integer> queue1 = new PriorityQueue<>();
+        // 降序排列。
         Queue<Integer> queue2 = new PriorityQueue<>((o1, o2) -> o2 - o1);
         dfs(root, target, queue1, queue2);
         List<Integer> res = new ArrayList<>();
