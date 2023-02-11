@@ -15,19 +15,21 @@ public class FindUnsortedSubarrayDemo {
     public int findUnsortedSubarray(int[] nums) {
         int left = -1;
         int right = -1;
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        // 正序遍历，当前数组中的最大值。
+        int currentMaxValue = Integer.MIN_VALUE;
+        // 反序遍历，当前数组中最小值。
+        int currentMinValue = Integer.MAX_VALUE;
         int n = nums.length;
         for (int i = 0; i < n; i++) {
-            if (max > nums[i]) {
+            if (currentMaxValue > nums[i]) {
                 right = i;
             } else {
-                max = nums[i];
+                currentMaxValue = nums[i];
             }
-            if (min < nums[n - i - 1]) {
+            if (currentMinValue < nums[n - i - 1]) {
                 left = n - i - 1;
             } else {
-                min = nums[n - i - 1];
+                currentMinValue = nums[n - i - 1];
             }
         }
         return right == -1 ? 0 : right - left + 1;
