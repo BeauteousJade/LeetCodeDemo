@@ -23,9 +23,11 @@ public class SortArrayByParityDemo {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 != 0 && i > 0) {
                 int value = nums[i];
+                // 1.向右移动偶数。
                 for (int j = i - 1; j >= left; j--) {
                     nums[j + 1] = nums[j];
                 }
+                // 2. 将奇数填入对应位置。
                 nums[left++] = value;
             } else if (nums[i] % 2 != 0) {
                 left++;
