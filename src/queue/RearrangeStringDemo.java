@@ -21,7 +21,7 @@ public class RearrangeStringDemo {
             char c = s.charAt(i);
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        // 大顶堆。
+        // 大顶堆。出现次数从大到小排序。
         Queue<Map.Entry<Character, Integer>> queue = new PriorityQueue<>((o1, o2) -> o2.getValue() - o1.getValue());
         queue.addAll(map.entrySet());
         StringBuilder stringBuilder = new StringBuilder();
