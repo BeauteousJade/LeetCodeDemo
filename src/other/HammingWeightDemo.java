@@ -27,4 +27,8 @@ public class HammingWeightDemo {
         return ret;
     }
 
+    public int hammingWeightV2(int n) {
+        return Integer.bitCount(n);
+    }
+
 }
