@@ -38,7 +38,7 @@ public class LongestValidParenthesesDemo {
     }
 
 
-    private int longestValidParenthesesV2(String s) {
+    public int longestValidParenthesesV2(String s) {
         int res = 0;
         Deque<Integer> stack = new LinkedList<>();
         stack.push(-1);
@@ -47,6 +47,8 @@ public class LongestValidParenthesesDemo {
                 stack.push(i);
             } else {
                 stack.pop();
+                // 如果为空了，此时就是非法字符串。因为默认stack不为空。
+                // 此时为了后面也能正常判断,且保证能够正确计算长度，这里push i 一个进去。
                 if (stack.isEmpty()) {
                     stack.push(i);
                 } else {
