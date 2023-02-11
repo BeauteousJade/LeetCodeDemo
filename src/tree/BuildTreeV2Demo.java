@@ -26,7 +26,7 @@ public class BuildTreeV2Demo {
 
 
     private TreeNode buildTreeV2(int[] inorder, int[] postorder, int inLeft, int inRight, int postLeft, int postRight) {
-        if (postLeft > postRight || postRight >= postorder.length) {
+        if (postLeft > postRight) {
             return null;
         }
         int postRoot = postRight;
