@@ -33,8 +33,7 @@ public class LongestConsecutiveDemoV2 {
         if (root.left != null) {
             if (root.left.val - 1 == root.val) {
                 arr[1] = left[1] + 1;
-            }
-            if (root.left.val + 1 == root.val) {
+            } else if (root.left.val + 1 == root.val) {
                 arr[0] = left[0] + 1;
             }
         }
@@ -43,15 +42,14 @@ public class LongestConsecutiveDemoV2 {
         if (root.right != null) {
             if (root.right.val - 1 == root.val) {
                 arr[1] = Math.max(arr[1], right[1] + 1);
-            }
-            if (root.right.val + 1 == root.val) {
+            } else if (root.right.val + 1 == root.val) {
                 arr[0] = Math.max(arr[0], right[0] + 1);
             }
         }
 
         //统计结果
+        // 因为上面left 和right + 1，所以多计算了一次，需要-1.
         res = Math.max(res, arr[0] + arr[1] - 1);
-        // 根节点也算一个，所以需要在计算arr[0]的时候就+1.
         return arr;
     }
 }
