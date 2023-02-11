@@ -37,6 +37,7 @@ public class LargestNumberDemo {
         for (String string : stringList) {
             res.append(string);
         }
+        // 检查是否全是0.
         if (check(res.toString())) {
             return "0";
         }
