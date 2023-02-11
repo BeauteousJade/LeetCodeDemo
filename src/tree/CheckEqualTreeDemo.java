@@ -17,6 +17,7 @@ public class CheckEqualTreeDemo {
 
     public boolean checkEqualTree(TreeNode root) {
         int total = sum(root);
+        // 这里弹出，避免左右子树加起来正好等于root.
         stack.pop();
         if (total % 2 == 0) {
             for (int sum : stack) {
@@ -32,7 +33,8 @@ public class CheckEqualTreeDemo {
         if (root == null) {
             return 0;
         }
-        stack.push(sum(root.left) + sum(root.right) + root.val);
+        int sum = sum(root.left) + sum(root.right) + root.val;
+        stack.push(sum);
         return stack.peek();
     }
 }
