@@ -39,6 +39,7 @@ public class GroupStringsDemo {
             if ((chars[i] - 'a') >= count) {
                 chars[i] = (char) (chars[i] - count);
             } else {
+                // 如果后面的字符小于前面的字符，需要+26，从Z开始循环。
                 chars[i] = (char) (chars[i] + 26 - count);
             }
         }
