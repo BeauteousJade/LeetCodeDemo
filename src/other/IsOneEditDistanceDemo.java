@@ -37,11 +37,14 @@ public class IsOneEditDistanceDemo {
                     return false;
                 }
                 if (s.length() == t.length()) {
+                    // 替换。
                     index1++;
                     index2++;
                 } else if (s.length() < t.length()) {
+                    // 插入。
                     index2++;
                 } else {
+                    // 删除。
                     index1++;
                 }
                 count++;
