@@ -26,13 +26,12 @@ public class IsPalindromeDemo {
                 } else {
                     return false;
                 }
-            } else if (!isIllegalChar(leftChar) && isIllegalChar(rightChar)) {
-                left++;
-            } else if (isIllegalChar(leftChar) && !isIllegalChar(rightChar)) {
-                right--;
             } else {
-                left++;
-                right--;
+                if (!isIllegalChar(leftChar)) {
+                    left++;
+                } else if (!isIllegalChar(rightChar)) {
+                    right--;
+                }
             }
         }
         return true;
