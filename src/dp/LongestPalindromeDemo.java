@@ -1,7 +1,7 @@
 package dp;
 
 /**
- * 最长回文字串
+ * 5. 最长回文子串
  * <p>
  * https://leetcode-cn.com/problems/longest-palindromic-substring/
  */
