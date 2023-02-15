@@ -51,6 +51,10 @@ public class WordSquaresDemo {
         }
     }
 
+    /**
+     * 构建前缀数组。
+     *
+     */
     protected HashMap<String, List<String>> buildPrefixHashTable(String[] words) {
         HashMap<String, List<String>> prefixHashTable = new HashMap<>();
         for (String word : words) {
