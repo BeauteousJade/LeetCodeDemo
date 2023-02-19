@@ -25,14 +25,14 @@ public class FindPermutationDemo {
         for (int i = 0; i < res.length; i++) {
             res[i] = i + 1;
         }
-        int i = 1;
+        int i = 0;
         while (i < res.length) {
             int j = i;
             // 找到属于D的区间，然后将这个区间给倒叙。
-            while (i < res.length && s.charAt(i - 1) == 'D') {
+            while (i < s.length() && s.charAt(i) == 'D') {
                 i++;
             }
-            reverse(res, j - 1, i);
+            reverse(res, j, i);
             i++;
         }
         return res;
@@ -41,7 +41,7 @@ public class FindPermutationDemo {
 
     private void reverse(int[] res, int start, int end) {
         int left = start;
-        int right = end - 1;
+        int right = end;
         while (left < right) {
             int temp = res[left];
             res[left] = res[right];
