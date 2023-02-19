@@ -46,6 +46,12 @@ public class SplitLoopedStringDemo {
 
 
     /**
+     * 此题意思：
+     * 1. 判断是否翻转字符串。
+     * 2. 所有字符串连接在在一起，以某个点切割。
+     * 3. 切割之后，后面的子串拼接到前面。
+     * 最终，求解得到的新字符串中，字典序最大的。
+     *
      * 贪心。
      */
     public String splitLoopedStringV2(String[] strs) {
