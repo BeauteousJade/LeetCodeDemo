@@ -18,7 +18,7 @@ public class IpToCIDRDemo {
 
     /**
      * 基本思想，以ip为start,逐渐遍历,计算每个每个IP的CIDR 能覆盖多少个IP，直到最后一个ip。
-     * 一个ip是否能够以CIDR代替多个，得看ip 地位 是为0:
+     * 一个ip是否能够以CIDR代替多个，得看ip低位是否为0:
      * 1. 如果不为0，那么CIDR只能代替一个。例如： 255.0.0.9 -> 11111111 00000000 00000000 00001001 -> 255.0.0.9/32
      * 2. 如果为0，那么CIDR可以代替多个。例如：255.0.0.8 -> 11111111 00000000 00000000 00001000 -> 255.0.0.8/29
      */
@@ -28,7 +28,10 @@ public class IpToCIDRDemo {
         while (n > 0) {
             // 获取低位0的个数。
             int trailingZeros = Integer.numberOfTrailingZeros(start);
-            int mask = 0, bitsInCIDR = 1;
+            // 计算Ip低位有几位可以被CIDR代替。
+            int mask = 0;
+            // 表示当前CIDR代表Ip的个数。
+            int bitsInCIDR = 1;
             // 计算mask
             while (bitsInCIDR < n && mask < trailingZeros) {
                 bitsInCIDR <<= 1;
@@ -63,8 +66,7 @@ public class IpToCIDRDemo {
         String[] strs = ip.split("\\.");
         int sum = 0;
         for (String str : strs) {
-            sum *= 256;
-            sum += Integer.parseInt(str);
+            sum = sum * 256 + Integer.parseInt(str);
         }
         return sum;
     }
