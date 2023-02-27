@@ -35,6 +35,7 @@ public class CheckSubarraySumDemo {
         }
         // 存储余数。
         Map<Integer, Integer> map = new HashMap<>();
+        // 如果前缀数组存储index，的话，默认第一位要存储-1.
         map.put(0, -1);
         int remainder = 0;
         for (int i = 0; i < m; i++) {
