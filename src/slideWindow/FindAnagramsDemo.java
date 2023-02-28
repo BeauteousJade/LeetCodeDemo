@@ -1,9 +1,6 @@
 package slideWindow;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 438. 找到字符串中所有字母异位词
@@ -43,14 +40,14 @@ public class FindAnagramsDemo {
                 if (right - left + 1 == p.length()) {
                     list.add(left);
                 }
-                c = charArray[left++];
+                c = charArray[left];
                 if (need.containsKey(c)) {
-                    int newCount = map.getOrDefault(c, 0);
-                    if (need.get(c) == newCount) {
+                    if (Objects.equals(map.get(c), need.get(c))) {
                         validCount--;
                     }
-                    map.put(c, newCount - 1);
+                    map.put(c, map.getOrDefault(c, 0) - 1);
                 }
+                left++;
             }
             right++;
         }
