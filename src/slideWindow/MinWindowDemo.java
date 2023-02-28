@@ -42,7 +42,7 @@ public class MinWindowDemo {
                     length = right - left + 1;
                     start = left;
                 }
-                char c1 = s.charAt(left++);
+                char c1 = s.charAt(left);
                 // 注意这里。只有map中有，才更新。
                 if (map.containsKey(c1)) {
                     if (Objects.equals(map.get(c1), need.get(c1))) {
@@ -50,6 +50,7 @@ public class MinWindowDemo {
                     }
                     map.put(c1, map.getOrDefault(c1, 0) - 1);
                 }
+                left++;
             }
             right++;
         }
