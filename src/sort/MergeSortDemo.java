@@ -15,42 +15,47 @@ public class MergeSortDemo {
         System.out.println(Arrays.toString(array));
     }
 
-
-    private void sort(int[] array) {
-        mergeSort(array, 0, array.length - 1, new int[array.length]);
+    public void sort(int[] arr) {
+        mergeSort(arr, 0, arr.length - 1);
     }
 
-    private void mergeSort(int[] array, int start, int end, int[] result) {
-        if (start == end) {
-            return;
+    private void mergeSort(int[] arr, int start, int end) {
+        if (start < end) {
+            int mid = (start + end) / 2;
+            mergeSort(arr, start, mid);
+            mergeSort(arr, mid + 1, end);
+            merge(arr, start, mid, end);
         }
-        int mid = (start + end) / 2;
-        mergeSort(array, start, mid, result);
-        mergeSort(array, mid + 1, end, result);
-        merge(array, start, end, result);
     }
 
-    private void merge(int[] array, int start, int end, int[] result) {
-        int start1 = start;
-        int end1 = (start + end) / 2;
-        int start2 = (start + end) / 2 + 1;
-        int end2 = end;
-        int resultIndex = start;
-        while (start1 <= end1 && start2 <= end2) {
-            if (array[start1] <= array[start2]) {
-                result[resultIndex++] = array[start1++];
-            } else {
-                result[resultIndex++] = array[start2++];
-            }
-        }
-        while (start1 <= end1) {
-            result[resultIndex++] = array[start1++];
-        }
-        while (start2 <= end2) {
-            result[resultIndex++] = array[start2++];
-        }
+    private void merge(int[] arr, int start, int mid, int end) {
+        int[] temp = new int[arr.length];
+        //  初始化
         for (int i = start; i <= end; i++) {
-            array[i] = result[i];
+            temp[i] = arr[i];
+        }
+
+        int i = start;
+        int j = mid + 1;
+        int k = start;
+
+        while (i <= mid && j <= end) {
+            if (temp[i] <= temp[j]) {
+                arr[k] = temp[i];
+                i++;
+            } else {
+                arr[k] = temp[j];
+                j++;
+            }
+            k++;
+        }
+
+        // 这里只需要拷贝i,不需要j的。
+        // 因为如果j没有拷贝完，上面初始化的逻辑就已经拷贝了，所以不需要拷贝。
+        while (i <= mid) {
+            arr[k] = temp[i];
+            i++;
+            k++;
         }
     }
 }
