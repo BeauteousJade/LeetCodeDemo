@@ -28,6 +28,7 @@ public class CanAttendMeetingsDemo {
         Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
         queue.offer(intervals[0][1]);
         for (int i = 1; i < intervals.length; i++) {
+            // 这里弹出一个，因为当前只会复用一个会议室。
             if (intervals[i][0] >= queue.peek()) {
                 queue.poll();
             }
