@@ -58,6 +58,7 @@ public class SequenceReconstructionDemo {
             Set<Integer> set = sets[queue.poll()];
             for (Integer i : set) {
                 counts[i]--;
+                // 如果count为0，表示当前没有前置的数字，可以入队
                 if (counts[i] == 0) {
                     queue.offer(i);
                 }
