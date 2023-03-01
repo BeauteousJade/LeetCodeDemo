@@ -17,6 +17,7 @@ public class RemoveDuplicatesSpaceDemo {
         int slowIndex = 0;
         char[] array = string.toCharArray();
         while (fastIndex < array.length) {
+            // 如果当前不等于空格，或者当前等于空格，但是上一个字符不等于空格，表示当前字符需要留下。
             if (array[fastIndex] != ' ' || (fastIndex > 0 && array[fastIndex] == ' ' && array[fastIndex - 1] != ' ')) {
                 array[slowIndex++] = array[fastIndex];
             }
