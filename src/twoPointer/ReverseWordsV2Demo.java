@@ -17,6 +17,11 @@ public class ReverseWordsV2Demo {
         System.out.println(Arrays.toString(s));
     }
 
+    /**
+     * 分为两步：
+     * 1. 先整体反转。
+     * 2. 再局部反转。
+     */
     public void reverseWords(char[] s) {
         int length = s.length;
         // 全部反向
@@ -30,6 +35,7 @@ public class ReverseWordsV2Demo {
                 start = i + 1;
             }
         }
+        // 反转最后一个字符串。
         reverseRange(s, start, length - 1);
     }
 
