@@ -11,9 +11,11 @@ import java.util.Map;
 public class CanWinDemo {
 
     public static void main(String[] args) {
-
-        int a = 1;
-        int b = 1;
+        for (int i = 1; i < 60; i++) {
+            long a = 3L << (i - 1);
+            long b = (1L << i ^ (1L << i - 1));
+            System.out.println(a == b);
+        }
     }
 
     int n;
@@ -46,7 +48,8 @@ public class CanWinDemo {
             }
             // 此时返回为true，表示是对方会赢。
             // 因为己方已经操作，操作：将第i位和第i - 1位反转位0.
-            if (dfs(mask ^ (1L << i ^ (1L << i - 1)))) {
+            // Java 中：&~ 就等于 ^
+            if (dfs(mask & ~(3L << (i - 1)))) {
                 continue;// 对方必胜则不选这条路
             }
             // 对方只要有一个必败，我方选这条路则必胜
