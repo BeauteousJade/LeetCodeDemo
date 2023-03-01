@@ -24,7 +24,6 @@
 > 21. [stack](src/sort) -- 栈
 > 22. [string](src/string) -- 字符串
 > 23. [topk](src/topk) -- topK 问题
-> 24. [topologicalSort](src/topologicalSort) -- 拓扑排序
-> 25. [tree](src/tree) -- 树
+> 24. [tree](src/tree) -- 树
 > 26. [twoPointer](src/twoPointer) -- 双指针
-> 27. [simulation](src/simulation) -- 模拟
+> 26. [simulation](src/simulation) -- 模拟
