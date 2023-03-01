@@ -1,4 +1,4 @@
-package twoPointer;
+package math;
 
 import java.util.Arrays;
 
@@ -15,6 +15,10 @@ public class SortTransformedArrayDemo {
         System.out.println(Arrays.toString(demo.sortTransformedArray(nums, 1, 3, 5)));
     }
 
+    /**
+     * 二元二次函数的曲线规律--数学题。
+     *
+     */
     public int[] sortTransformedArray(int[] nums, int a, int b, int c) {
 
         int[] res = new int[nums.length];
