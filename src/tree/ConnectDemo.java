@@ -8,7 +8,6 @@ import java.util.Queue;
  * <p>
  * https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/
  */
-// TODO 下次
 public class ConnectDemo {
 
     public static void main(String[] args) {
