@@ -21,6 +21,7 @@ public class VerifyPreorderDemo {
         if (left >= array.length || left > right) {
             return true;
         }
+        // 可以不需要这个条件。加上这个条件，时间复杂度低一些。
         if (left == right) {
             return array[left] > min && array[right] < max;
         }
