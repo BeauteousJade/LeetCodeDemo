@@ -38,4 +38,26 @@ public final class TreeUtils {
         return result;
     }
 
+
+    public static TreeNode buildTree(Integer[] array) {
+        TreeNode[] tree = new TreeNode[array.length];
+        for (int i = 0; i < array.length; i++) {
+            Integer value = array[i];
+            if (value != null) {
+                tree[i] = tree[i] == null ? new TreeNode(value) : tree[i];
+                if (2 * (i + 1) - 1 < array.length && array[2 * (i + 1) - 1] != null) {
+                    TreeNode left = new TreeNode(array[2 * (i + 1) - 1]);
+                    tree[i].left = left;
+                    tree[2 * (i + 1) - 1] = left;
+                }
+                if (2 * (i + 1) < array.length && array[2 * (i + 1)] != null) {
+                    TreeNode right = new TreeNode(array[2 * (i + 1)]);
+                    tree[i].right = right;
+                    tree[2 * (i + 1)] = right;
+                }
+            }
+        }
+        return tree[0];
+    }
+
 }
