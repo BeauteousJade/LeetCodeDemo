@@ -1,8 +1,5 @@
 package math;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 43. 字符串相乘
  * <p>
@@ -20,13 +17,12 @@ public class MultiplyDemo {
         }
         char[] array1 = num1.toCharArray();
         char[] array2 = num2.toCharArray();
-        // 1. 先把num1分别与num2的每位相乘，得到对应的结果。存储到List中。
-        List<String> list = new ArrayList<>();
+        String ans = "";
         for (int i = array2.length - 1; i >= 0; i--) {
             int m = array2[i] - '0';
             int add = 0;
             StringBuilder res = new StringBuilder();
-            // 最终结果，低位需要补0.
+            // 1. 先一位一位的乘，得到结果。
             for (int k = i; k < array2.length - 1; k++) {
                 res.append(0);
             }
@@ -39,29 +35,30 @@ public class MultiplyDemo {
             if (add != 0) {
                 res.append(add);
             }
-            list.add(res.reverse().toString());
+            // 2. 再跟之前的结果相加。
+            ans = add(ans, res.reverse().toString());
         }
-        int maxLength = list.get(list.size() - 1).length();
-        int index = 0;
-        StringBuilder res = new StringBuilder();
+        return ans;
+    }
+
+    private String add(String num1, String num2) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int index1 = num1.length() - 1;
+        int index2 = num2.length() - 1;
         int add = 0;
-        // 2. 将所有的结果相加，得到最终结果。
-        while (index < maxLength) {
-            int total = add;
-            for (String string : list) {
-                int newIndex = string.length() - 1 - index;
-                if (newIndex >= 0) {
-                    total += string.charAt(newIndex) - '0';
-                }
-            }
-            res.append(total % 10);
+        while (index1 >= 0 || index2 >= 0) {
+            int m = index1 >= 0 ? num1.charAt(index1) - '0' : 0;
+            int n = index2 >= 0 ? num2.charAt(index2) - '0' : 0;
+            int total = m + n + add;
+            stringBuilder.append(total % 10);
             add = total / 10;
-            index++;
+            index2--;
+            index1--;
         }
         if (add != 0) {
-            res.append(add);
+            stringBuilder.append(add);
         }
-        return res.reverse().toString();
+        return stringBuilder.reverse().toString();
     }
 
 }
