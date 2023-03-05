@@ -18,6 +18,7 @@ public class EncodeDemo {
 
     public String encode(String s) {
         int n = s.length();
+        // dp[i][j]:表示从i到j的子串所能组成的最短编码。
         dp = new String[n][n];
         // 先要遍历短的子串，因为在dp计算的是会拆子串。
         for (int len = 1; len <= n; len++) {
