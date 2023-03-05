@@ -1,7 +1,7 @@
 package dp;
 
 /**
- * 一和零
+ * 474. 一和零
  * 给你一个二进制字符串数组 strs 和两个整数 m 和 n 。
  * <p>
  * 请你找出并返回 strs 的最大子集的长度，该子集中 最多 有 m 个 0 和 n 个 1 。
@@ -32,8 +32,10 @@ public class FindMaxFormDemo {
             int[] count = getCount(strs[i - 1]);
             for (int j = 0; j <= m; j++) {
                 for (int k = 0; k <= n; k++) {
+                    // 1. 不选当前字符串
                     dp[i][j][k] = dp[i - 1][j][k];
                     if (j >= count[0] && k >= count[1]) {
+                        // 2. 尝试选择当前字符串。
                         dp[i][j][k] = Math.max(dp[i][j][k], dp[i - 1][j - count[0]][k - count[1]] + 1);
                     }
                 }
