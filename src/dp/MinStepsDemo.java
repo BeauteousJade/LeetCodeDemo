@@ -12,6 +12,7 @@ public class MinStepsDemo {
     }
 
     public int minSteps(int n) {
+        // [当前字符数]：最小步数。
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;
