@@ -16,6 +16,7 @@ public class MinCostDemoV2 {
     public int minCostII(int[][] costs) {
 
         int k = costs[0].length;
+        // dp[房子下标][房子颜色]：最小花费。
         int[][] dp = new int[costs.length][k];
         for (int i = 0; i < k; i++) {
             dp[0][i] = costs[0][i];
