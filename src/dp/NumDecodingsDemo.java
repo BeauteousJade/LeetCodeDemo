@@ -37,11 +37,13 @@ public class NumDecodingsDemo {
 
             char c = s.charAt(i - 1);
             if (c != '0') {
-                dp[i] += dp[i - 1];
+                // 只对当前字符做映射
+                dp[i] = dp[i - 1];
             }
             if (i > 1) {
                 String substring = s.substring(i - 2, i);
                 if (map.containsKey(substring)) {
+                    // 对当前字符 + 前一个字符做映射。
                     dp[i] += dp[i - 2];
                 }
             }
