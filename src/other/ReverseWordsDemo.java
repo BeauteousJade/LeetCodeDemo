@@ -1,8 +1,5 @@
 package other;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * 151. 翻转字符串里的单词
  * <p>
@@ -16,28 +13,44 @@ public class ReverseWordsDemo {
     }
 
     public String reverseWords(String s) {
-        char[] chars = s.toCharArray();
-        List<String> list = new ArrayList<>();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < chars.length; i++) {
-            char c = chars[i];
-            if (c != ' ') {
-                stringBuilder.append(c);
-            } else if (stringBuilder.length() != 0) {
-                list.add(0, stringBuilder.toString());
-                stringBuilder.delete(0, stringBuilder.length());
+        char[] array = s.trim().toCharArray();
+        // 1. 整体反转。
+        reverse(array, 0, array.length - 1);
+        int left = 0;
+        for (int i = left; i < array.length - 1; i++) {
+            // 2. 单个反转。
+            if (array[i] == ' ' && array[i + 1] != ' ') {
+                reverse(array, left, i - 1);
+                left = i + 1;
             }
         }
-        if (stringBuilder.length() != 0) {
-            list.add(0, stringBuilder.toString());
-            stringBuilder.delete(0, stringBuilder.length());
-        }
-        for (int i = 0; i < list.size(); i++) {
-            stringBuilder.append(list.get(i));
-            if (i != list.size() - 1) {
-                stringBuilder.append(" ");
+        // 3. 反转最后一个单词。
+        reverse(array, left, array.length - 1);
+
+        // 4. 使用快慢指针，消除多余的空格。
+        int fastIndex = 0;
+        int slowIndex = 0;
+        while (fastIndex < array.length) {
+            if (array[fastIndex] != ' ' || fastIndex < array.length - 1 && array[fastIndex] == ' ' && array[fastIndex + 1] != ' ') {
+                array[slowIndex++] = array[fastIndex];
             }
+            fastIndex++;
         }
-        return stringBuilder.toString();
+        // 将多余字符设置为空格。
+        for (int i = slowIndex; i < array.length; i++) {
+            array[i] = ' ';
+        }
+        // 记得trim一下，因为上面会把多余字符设置为空格。
+        return new String(array).trim();
+    }
+
+    private void reverse(char[] array, int start, int end) {
+        while (start < end) {
+            char temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+            start++;
+            end--;
+        }
     }
 }
