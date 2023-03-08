@@ -17,34 +17,48 @@ public class SearchRangeDemo {
 
     public int[] searchRange(int[] nums, int target) {
         int[] res = new int[]{-1, -1};
-        res[0] = search(true, nums, target);
-        res[1] = search(false, nums, target);
+        res[0] = searchLeft(nums, target);
+        res[1] = searchRight(nums, target);
         return res;
     }
 
-
-    private int search(boolean isLeft, int[] nums, int target) {
+    private int searchLeft(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        boolean isFind = false;
         while (left <= right) {
             int mid = (left + right) / 2;
             if (target == nums[mid]) {
-                isFind = true;
-                if (isLeft) {
-                    right = mid - 1;
-                } else {
-                    left = mid + 1;
-                }
+                // 寻找左边界，那么就收缩右边界。
+                right = mid - 1;
             } else if (target < nums[mid]) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-        if (!isFind) {
+        if (left >= nums.length || nums[left] != target) {
             return -1;
         }
-        return isLeft ? left : right;
+        return left;
+    }
+
+    private int searchRight(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (target == nums[mid]) {
+                // 寻找右边界，那么就收缩左边界。
+                left = mid + 1;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (right < 0 || nums[right] != target) {
+            return -1;
+        }
+        return right;
     }
 }
