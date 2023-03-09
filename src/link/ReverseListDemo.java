@@ -30,4 +30,32 @@ public class ReverseListDemo {
         }
         return preNode;
     }
+
+
+    private ListNode newHead;
+    private ListNode preNode;
+
+    /**
+     * 递归写法。
+     *
+     */
+    public ListNode reverseListV2(ListNode head) {
+        dfs(head);
+        return newHead;
+    }
+
+    private void dfs(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        dfs(head.next);
+        head.next = null;
+        if (newHead == null) {
+            newHead = head;
+            preNode = head;
+        } else {
+            preNode.next = head;
+            preNode = head;
+        }
+    }
 }
