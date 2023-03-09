@@ -1,4 +1,4 @@
-package other;
+package twoPointer;
 
 import java.util.Arrays;
 
@@ -12,30 +12,31 @@ public class CompressDemo {
 
     public static void main(String[] args) {
         CompressDemo demo = new CompressDemo();
-        char[] array = new char[]{'a', 'a', 'a'};
+        char[] array = new char[]{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
         System.out.println(demo.compress(array));
         System.out.println(Arrays.toString(array));
     }
 
     public int compress(char[] chars) {
         int n = chars.length;
-        int write = 0;
-        int read = 0;
+        int slowIndex = 0;
+        int fastIndex = 0;
         int left = 0;
-        for (read = 0; read < n; read++) {
-            if (read == n - 1 || chars[read + 1] != chars[read]) {
-                chars[write++] = chars[read];
-                int num = read - left + 1;
+        while (fastIndex < n) {
+            if (fastIndex == n - 1 || chars[fastIndex + 1] != chars[fastIndex]) {
+                chars[slowIndex++] = chars[fastIndex];
+                int num = fastIndex - left + 1;
                 if (num > 1) {
                     char[] charArray = String.valueOf(num).toCharArray();
                     for (char c : charArray) {
-                        chars[write++] = c;
+                        chars[slowIndex++] = c;
                     }
                 }
-                left = read + 1;
+                left = fastIndex + 1;
             }
+            fastIndex++;
         }
-
-        return write;
+        return slowIndex;
     }
+
 }
