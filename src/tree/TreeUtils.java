@@ -40,24 +40,27 @@ public final class TreeUtils {
 
 
     public static TreeNode buildTree(Integer[] array) {
-        TreeNode[] tree = new TreeNode[array.length];
-        for (int i = 0; i < array.length; i++) {
-            Integer value = array[i];
-            if (value != null) {
-                tree[i] = tree[i] == null ? new TreeNode(value) : tree[i];
-                if (2 * (i + 1) - 1 < array.length && array[2 * (i + 1) - 1] != null) {
-                    TreeNode left = new TreeNode(array[2 * (i + 1) - 1]);
-                    tree[i].left = left;
-                    tree[2 * (i + 1) - 1] = left;
-                }
-                if (2 * (i + 1) < array.length && array[2 * (i + 1)] != null) {
-                    TreeNode right = new TreeNode(array[2 * (i + 1)]);
-                    tree[i].right = right;
-                    tree[2 * (i + 1)] = right;
-                }
-            }
+        if (array.length == 0) {
+            return null;
         }
-        return tree[0];
+        TreeNode root = new TreeNode(array[0]);
+        int index = 1;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (array[index] != null) {
+                node.left = new TreeNode(array[index]);
+                queue.offer(node.left);
+            }
+            index++;
+            if (array[index] != null) {
+                node.right = new TreeNode(array[index]);
+                queue.offer(node.right);
+            }
+            index++;
+        }
+        return root;
     }
 
 }
