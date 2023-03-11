@@ -2,6 +2,7 @@ package twoPointer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,43 +21,49 @@ public class ThreeSumDemo {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
+
         for (int i = 0; i < nums.length; i++) {
-            if ((i >= 1 && nums[i] != nums[i - 1] || i == 0)) {
-                List<List<Integer>> list = twoSum(nums, -nums[i], i + 1);
-                for (List<Integer> tempList : list) {
-                    tempList.add(0, nums[i]);
+            if (i == 0 || nums[i] != nums[i - 1]) {
+                List<List<Integer>> list = twoSum(i + 1, nums.length - 1, -nums[i], nums);
+                for (List<Integer> res : list) {
+                    res.add(0, nums[i]);
                 }
-                result.addAll(list);
+                if (!list.isEmpty()) {
+                    result.addAll(list);
+                }
+
             }
         }
         return result;
     }
 
 
-    private List<List<Integer>> twoSum(int[] nums, int target, int start) {
-        int left = start;
-        int right = nums.length - 1;
-        List<List<Integer>> result = new ArrayList<>();
-        while (left < right) {
-            if (target == nums[left] + nums[right]) {
-                List<Integer> list = new ArrayList<>();
-                list.add(nums[left]);
-                list.add(nums[right]);
-                result.add(list);
-                left++;
-                right--;
-                while (left < right && nums[left] == nums[left - 1]) {
-                    left++;
+    private List<List<Integer>> twoSum(int start, int end, int target, int[] nums) {
+        List<List<Integer>> list = new LinkedList<>();
+        while (start < end) {
+            int sum = nums[start] + nums[end];
+            if (sum == target) {
+                List<Integer> res = new LinkedList<>();
+                res.add(nums[start]);
+                res.add(nums[end]);
+                list.add(res);
+                start++;
+                end--;
+                // 排序重复元素。
+                while (start < end && nums[start] == nums[start - 1]) {
+                    start++;
                 }
-                while (left < right && nums[right] == nums[right + 1]) {
-                    right--;
+                while (start < end && nums[end] == nums[end + 1]) {
+                    end--;
                 }
-            } else if (target > nums[left] + nums[right]) {
-                left++;
+            } else if (sum < target) {
+                start++;
             } else {
-                right--;
+                end--;
             }
         }
-        return result;
+        return list;
     }
+
+
 }
