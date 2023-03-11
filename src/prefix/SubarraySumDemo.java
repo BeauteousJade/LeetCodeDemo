@@ -1,6 +1,7 @@
 package prefix;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 560. 和为 K 的子数组
@@ -14,7 +15,7 @@ public class SubarraySumDemo {
         SubarraySumDemo demo = new SubarraySumDemo();
         int[] array = new int[]{1, 2, 3};
         int k = 3;
-        System.out.println(demo.subarraySum(array, k));
+        System.out.println(demo.subarraySumV2(array, k));
     }
 
     public int subarraySum(int[] nums, int k) {
@@ -31,17 +32,20 @@ public class SubarraySumDemo {
         return count;
     }
 
+
     public int subarraySumV2(int[] nums, int k) {
-        int count = 0, pre = 0;
-        HashMap<Integer, Integer> mp = new HashMap<>();
-        mp.put(0, 1);
+        int sum = 0;
+        int res = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+
         for (int i = 0; i < nums.length; i++) {
-            pre += nums[i];
-            if (mp.containsKey(pre - k)) {
-                count += mp.get(pre - k);
+            sum += nums[i];
+            if (map.containsKey(sum - k)) {
+                res += map.getOrDefault(sum - k, 0);
             }
-            mp.put(pre, mp.getOrDefault(pre, 0) + 1);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
-        return count;
+        return res;
     }
 }
