@@ -40,6 +40,38 @@ public class RemoveNthFromEndDemo {
         return preHead.next;
     }
 
+
+    private int count = 0;
+    private ListNode deleteNode;
+    private ListNode preNode;
+
+    public ListNode removeNthFromEndV2(ListNode head, int n) {
+        ListNode preHead = new ListNode(0);
+        preHead.next = head;
+        dfs(n, head);
+        if (preNode == null) {
+            preNode = preHead;
+        }
+        preNode.next = deleteNode.next;
+        deleteNode.next = null;
+        return preHead.next;
+    }
+
+
+    private void dfs(int n, ListNode head) {
+        if (head == null) {
+            return;
+        }
+        dfs(n, head.next);
+        count++;
+        if (n == count) {
+            deleteNode = head;
+        }
+        if (n + 1 == count) {
+            preNode = head;
+        }
+    }
+
     private void listNodeToString(ListNode listNode) {
         List<Integer> list = new ArrayList<>();
         while (listNode != null) {
