@@ -57,6 +57,7 @@ public class InsertDemo {
                 break;
             }
             // 当前值小于下一个值，表示出现最大值和最小值。此时可能需要将新的值插入到他俩中间。
+            // 出现环的地方，curren是最大值，next是最小值。
             if (curr.val > next.val) {
                 // 如果说插入值比当前值或者当前值比下一个值小，可以插入。
                 if (insertVal > curr.val || insertVal < next.val) {
