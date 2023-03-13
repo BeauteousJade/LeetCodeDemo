@@ -12,34 +12,36 @@ public class SpiralOrderDemo {
     }
 
     public int[] spiralOrder(int[][] matrix) {
-        if (matrix.length == 0) return new int[0];
+        if (matrix.length == 0) {
+            return new int[0];
+        }
         int left = 0;
         int right = matrix[0].length - 1;
         int top = 0;
         int bottom = matrix.length - 1;
-        int x = 0;
+        int index = 0;
         int[] res = new int[(right + 1) * (bottom + 1)];
         while (true) {
             for (int i = left; i <= right; i++) {
-                res[x++] = matrix[top][i]; // left to right.
+                res[index++] = matrix[top][i]; // left to right.
             }
             if (++top > bottom) { // 换下一行。
                 break;
             }
             for (int i = top; i <= bottom; i++) {
-                res[x++] = matrix[i][right]; // top to bottom.
+                res[index++] = matrix[i][right]; // top to bottom.
             }
             if (left > --right) { // 换到左边的列
                 break;
             }
             for (int i = right; i >= left; i--) {
-                res[x++] = matrix[bottom][i]; // right to left.
+                res[index++] = matrix[bottom][i]; // right to left.
             }
             if (top > --bottom) { // 换到上一行
                 break;
             }
             for (int i = bottom; i >= top; i--) {
-                res[x++] = matrix[i][left]; // bottom to top.
+                res[index++] = matrix[i][left]; // bottom to top.
             }
             if (++left > right) { // 换到右边的列。
                 break;
