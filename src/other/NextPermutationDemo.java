@@ -13,13 +13,12 @@ public class NextPermutationDemo {
     }
 
     /**
-     *
-     *   1
-     *   1 1
+     * 1
+     * 1 1
      * 1 1 1 1
      * 1 1 1 1 1
      * -   -
-     *
+     * <p>
      * 1. 选择
      * 2. 交换
      * 3. 倒序
@@ -38,6 +37,7 @@ public class NextPermutationDemo {
             }
             swap(nums, i, j);
         }
+        // 这里不用判断i >= 0。如果i < 0，表示当前数组是从大到小排列的，它下一个排列就是从小到大。
         reverse(nums, i + 1);
     }
 
