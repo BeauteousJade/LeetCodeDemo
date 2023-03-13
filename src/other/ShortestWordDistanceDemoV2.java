@@ -17,7 +17,7 @@ public class ShortestWordDistanceDemoV2 {
         int index2 = -1;
         int ans = wordsDict.length;
         for (int i = 0; i < wordsDict.length; i++) {
-            if (wordsDict[i].equals(word1) && (index1 <= index2 || !word1.equals(word2))) {
+            if (wordsDict[i].equals(word1) && (index1 < index2 || !word1.equals(word2))) {
                 index1 = i;
             } else if (wordsDict[i].equals(word2)) {
                 index2 = i;
