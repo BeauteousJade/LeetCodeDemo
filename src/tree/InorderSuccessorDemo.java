@@ -38,4 +38,28 @@ public class InorderSuccessorDemo {
         if (root.right != null)
             foreach(root.right);
     }
+
+    /**
+     * 递归写法。
+     */
+    public TreeNode inorderSuccessorV2(TreeNode root, TreeNode p) {
+        dfs(root, p);
+        return res;
+    }
+
+    private boolean isFind = false;
+    private TreeNode res;
+
+    private void dfs(TreeNode root, TreeNode p) {
+        if (root == null) {
+            return;
+        }
+        dfs(root.left, p);
+        if (root == p && !isFind) {
+            isFind = true;
+        } else if (isFind && res == null) {
+            res = root;
+        }
+        dfs(root.right, p);
+    }
 }
