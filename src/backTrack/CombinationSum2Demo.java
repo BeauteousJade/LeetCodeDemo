@@ -1,6 +1,7 @@
 package backTrack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class CombinationSum2Demo {
     private List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
         boolean[] rec = new boolean[candidates.length];
         backTrack(candidates, rec, target, 0, 0);
         return result;
@@ -35,7 +37,10 @@ public class CombinationSum2Demo {
             result.add(new ArrayList<>(list));
         } else {
             for (int i = index; i < candidates.length; i++) {
-                if (sum + candidates[i] <= target && !rec[i] && !skip(candidates, rec, candidates[i], i)) {
+                if (skip(i, candidates, rec)) {
+                    continue;
+                }
+                if (sum + candidates[i] <= target && !rec[i]) {
                     rec[i] = true;
                     backTrack(candidates, rec, target, sum + candidates[i], i + 1);
                     rec[i] = false;
@@ -44,14 +49,7 @@ public class CombinationSum2Demo {
         }
     }
 
-    private boolean skip(int[] candidates, boolean[] rec, int value, int index) {
-        for (int i = 0; i < index; i++) {
-            // 如果值相同，但是没有被选择，就需要跳过。
-            // 因为相同的数字，只能选择一次，所以就选择第一次出现的那个数字即可。
-            if (candidates[i] == value && !rec[i]) {
-                return true;
-            }
-        }
-        return false;
+    private boolean skip(int currentIndex, int[] candidates, boolean[] rec) {
+        return currentIndex > 0 && candidates[currentIndex] == candidates[currentIndex - 1] && !rec[currentIndex - 1];
     }
 }
