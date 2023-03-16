@@ -1,6 +1,7 @@
 package backTrack;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ public class PermuteUniqueDemo {
     private final List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
         boolean[] rec = new boolean[nums.length];
         backTrack(new ArrayList<>(), nums, rec);
         return result;
@@ -34,6 +36,9 @@ public class PermuteUniqueDemo {
             result.add(new ArrayList<>(list));
         } else {
             for (int i = 0; i < nums.length; i++) {
+                if (skip(nums, i, res)) {
+                    continue;
+                }
                 if (!res[i] && !skip(nums, i, res)) {
                     list.add(nums[i]);
                     res[i] = true;
@@ -46,13 +51,6 @@ public class PermuteUniqueDemo {
     }
 
     private boolean skip(int[] nums, int index, boolean[] rec) {
-        for (int i = 0; i < index; i++) {
-            // 如果值相同，但是没有被选择，就需要跳过。
-            // 因为相同的数字，只能选择一次，所以就选择第一次出现的那个数字即可。
-            if (nums[i] == nums[index] && !rec[i]) {
-                return true;
-            }
-        }
-        return false;
+        return index > 0 && nums[index - 1] == nums[index] && !rec[index - 1];
     }
 }
