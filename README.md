@@ -27,3 +27,4 @@
 > 24. [tree](src/tree) -- 树
 > 26. [twoPointer](src/twoPointer) -- 双指针
 > 26. [simulation](src/simulation) -- 模拟
+> 27. [bucket](src/bucket) -- 桶
