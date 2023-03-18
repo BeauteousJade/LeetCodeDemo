@@ -1,4 +1,4 @@
-package dataStructure;
+package orderedSet;
 
 import java.util.TreeMap;
 
