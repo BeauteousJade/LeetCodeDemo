@@ -35,6 +35,9 @@ public class ContainsNearbyAlmostDuplicateDemo {
     }
 
 
+    /**
+     * 桶
+     */
     public boolean containsNearbyAlmostDuplicateV2(int[] nums, int k, int t) {
         // 桶的容量
         int w = t + 1;
