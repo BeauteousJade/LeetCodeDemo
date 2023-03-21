@@ -12,7 +12,7 @@ public class MissingNumberDemo {
     }
 
     /**
-     * 1.先看是否去等于，如果等于就两个都变，结果优先选择left。
+     * 1.先看是否left等于right，如果等于就两个都变，结果优先选择left。
      * 2.如果不能等于就一个变，最终结果选择变得那个。
      */
     public int missingNumber(int[] nums) {
