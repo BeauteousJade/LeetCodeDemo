@@ -29,3 +29,4 @@
 > 26. [simulation](src/simulation) -- 模拟
 > 27. [bucket](src/bucket) -- 桶
 > 28. [orderedSet](src/orderedSet) -- 有序集合
+> 29. [trie](src/trie) -- 字典树
