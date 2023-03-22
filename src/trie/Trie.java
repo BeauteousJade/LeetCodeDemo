@@ -1,4 +1,4 @@
-package dataStructure;
+package trie;
 
 /**
  * 208. 实现 Trie (前缀树)
