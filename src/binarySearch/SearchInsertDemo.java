@@ -16,6 +16,7 @@ public class SearchInsertDemo {
         while (left <= right) {
             int mid = (left + right) / 2;
             if (nums[mid] == target) {
+                // 找到了，就直接返回。
                 return mid;
             } else if (nums[mid] < target) {
                 left = mid + 1;
@@ -23,6 +24,10 @@ public class SearchInsertDemo {
                 right = mid - 1;
             }
         }
+        // 如果没有找到，就返回left，三种情况：
+        // 1. target 比 nums[0] 小，那么最终left等于0。
+        // 2. target 比 nums[nums.length - 1] 大，那么最终left等于 nums.length。
+        // 3. target 在最小值和最大值之前，那么left就是在比target 最接近的大值上。
         return left;
     }
 }
