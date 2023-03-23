@@ -32,6 +32,7 @@ public class MinEatingSpeedDemo {
     public long getTime(int[] piles, int speed) {
         long time = 0;
         for (int pile : piles) {
+            // 向上取整，因为吃完之后，这个小时都不会再吃了。
             int curTime = (int) Math.ceil(pile * 1.0 / speed);
             time += curTime;
         }
