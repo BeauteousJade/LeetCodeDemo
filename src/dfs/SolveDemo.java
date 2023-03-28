@@ -32,6 +32,7 @@ public class SolveDemo {
         int n = board.length;
         int m = board[0].length;
 
+        // 1. 先将4个边界搜一遍，同时将不符合要求的位置设置为一个其他字符。
         for (int i = 0; i < n; i++) {
             dfs(i, 0, board);
             dfs(i, m - 1, board);
@@ -41,6 +42,7 @@ public class SolveDemo {
             dfs(n - 1, i, board);
         }
 
+        // 将符合要求的节点设置X，将不符合要求的节点设置为O.
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (board[i][j] == 'A') {
