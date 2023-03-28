@@ -1,4 +1,4 @@
-package dfs;
+package disjointSet;
 
 import java.util.Arrays;
 
