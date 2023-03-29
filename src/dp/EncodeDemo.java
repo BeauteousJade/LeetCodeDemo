@@ -5,6 +5,7 @@ package dp;
  * <p>
  * https://leetcode.cn/problems/encode-string-with-shortest-length/
  */
+// TODO 下次
 public class EncodeDemo {
 
     public static void main(String[] args) {
