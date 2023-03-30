@@ -5,7 +5,6 @@ package dp;
  * <p>
  * https://leetcode.cn/problems/encode-string-with-shortest-length/
  */
-// TODO 下次
 public class EncodeDemo {
 
     public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class EncodeDemo {
         int n = s.length();
         // dp[i][j]:表示从i到j的子串所能组成的最短编码。
         dp = new String[n][n];
-        // 先要遍历短的子串，因为在dp计算的是会拆子串。
+        // 先要遍历短的子串，因为在dp计算的时候会拆子串。
         for (int len = 1; len <= n; len++) {
             for (int i = 0; i < n - len + 1; i++) {
                 int j = i + len - 1;
