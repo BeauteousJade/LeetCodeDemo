@@ -51,7 +51,7 @@ public class MaxKilledEnemiesDemo {
         }
         for (int j = 0; j < n; j++) {
             pre = 0;
-            // 从左往右遍历，计算当前点能炸死左侧的敌人个数。
+            // 从上到下遍历，计算当前点能炸死左侧的敌人个数。
             for (int i = 0; i < m; i++) {
                 if (grid[i][j] == 'E') {
                     pre++;
@@ -65,7 +65,7 @@ public class MaxKilledEnemiesDemo {
 
             pre = 0;
 
-            // 从右往左遍历，计算当前点能炸死右侧的敌人个数。
+            // 从下到上遍历，计算当前点能炸死右侧的敌人个数。
             for (int i = m - 1; i >= 0; i--) {
                 if (grid[i][j] == 'E') {
                     pre++;
