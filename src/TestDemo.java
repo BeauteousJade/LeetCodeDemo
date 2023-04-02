@@ -4,40 +4,16 @@ public class TestDemo {
 
     public static void main(String[] args) {
         TestDemo demo = new TestDemo();
-
+        demo.test();
     }
 
-    public Node insert(Node head, int insertVal) {
-        if (head == null) {
-            Node listNode = new Node(insertVal);
-            listNode.next = listNode;
-            return listNode;
+    private void test() {
+        long time = System.currentTimeMillis();
+        boolean a = false;
+        for (int i = 0; i < Integer.MAX_VALUE / 10; i++) {
+            a = !a;
         }
-        if (head.next == null) {
-            Node listNode = new Node(insertVal);
-            head.next = listNode;
-            listNode.next = head;
-            return head;
-        }
-
-        Node current = head;
-        Node next = head.next;
-        while (next != head) {
-            if (current.val <= insertVal && next.val >= insertVal) {
-                break;
-            }
-            // 环
-            if (current.val > next.val) {
-                if (insertVal >= current.val || insertVal <= next.val) {
-                    break;
-                }
-            }
-            current = current.next;
-            next = next.next;
-        }
-        current.next = new Node(insertVal);
-        current.next.next = next;
-        return head;
+        System.out.println(System.currentTimeMillis() - time);
     }
 
     class Node {
