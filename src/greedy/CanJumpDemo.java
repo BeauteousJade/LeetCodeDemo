@@ -6,7 +6,6 @@ package greedy;
  * https://leetcode-cn.com/problems/jump-game/
  * 贪心。
  */
-// TODO 下次
 public class CanJumpDemo {
 
     public static void main(String[] args) {
