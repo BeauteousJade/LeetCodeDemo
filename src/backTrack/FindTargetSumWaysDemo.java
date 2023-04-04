@@ -1,5 +1,7 @@
 package backTrack;
 
+import java.util.Arrays;
+
 /**
  * 494. 目标和
  * <p>
@@ -30,36 +32,31 @@ public class FindTargetSumWaysDemo {
         }
     }
 
+    /**
+     * sum:和。
+     * 正数:sum1
+     * 负数：sum2
+     * sum = sum1 + sum2
+     * sum - sum2 = target = sum - 2 * sum2
+     * sum2 = (sum - target) / 2
+     */
     public int findTargetSumWaysV2(int[] nums, int target) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        int diff = sum - target;
-        if (diff < 0 || diff % 2 != 0) {
+        int sum = Arrays.stream(nums).sum();
+        if ((sum - target) % 2 != 0 || sum - target < 0) {
             return 0;
         }
-        //记数组的元素和为 sum，添加- 号的元素之和为neg，则其余添加+的元素之和为sum−neg，
-        // 得到的表达式的结果为：
-        // (sum − neg) − neg= sum − 2 * neg = target
-        // 得出结果：neg = (sum - target)  / 2。
-        int neg = diff / 2;
-        // dp[i][j]:前i个数，和为j的数量。
-        int[][] dp = new int[nums.length + 1][neg + 1];
+        int diff = (sum - target) / 2;
+        int m = nums.length;
+        int[][] dp = new int[m + 1][diff + 1];
         dp[0][0] = 1;
-        for (int i = 1; i <= nums.length; i++) {
-            int num = nums[i - 1];
-            for (int j = 0; j <= neg; j++) {
-                // 默认不选择 num[i - 1]
+        for (int i = 1; i <= m; i++) {
+            for (int j = 0; j <= diff; j++) {
                 dp[i][j] = dp[i - 1][j];
-                if (j >= num) {
-                    // dp[i - 1][j]表示不选。
-                    // dp[i - 1][j - num]表示选。
-                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - num];
+                if (j >= nums[i - 1]) {
+                    dp[i][j] += dp[i - 1][j - nums[i - 1]];
                 }
             }
         }
-
-        return dp[nums.length][neg];
+        return dp[m][diff];
     }
 }
