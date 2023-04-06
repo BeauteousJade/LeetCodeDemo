@@ -8,6 +8,7 @@ import java.util.List;
  * <p>
  * https://leetcode-cn.com/problems/palindrome-linked-list/
  */
+// TODO 下次
 public class IsPalindromeDemo {
 
     public static void main(String[] args) {

@@ -8,7 +8,6 @@ import java.util.Map;
  * <p>
  * https://leetcode.cn/problems/palindrome-permutation/
  */
-// TOOD 下次
 public class CanPermutePalindromeDemo {
 
     public static void main(String[] args) {
