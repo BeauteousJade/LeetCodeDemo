@@ -19,6 +19,9 @@ public class MergeKListsDemo {
     }
 
 
+    /**
+     * 顺序合并
+     */
     public ListNode mergeKLists(ListNode[] lists) {
 
         ListNode listNode = new ListNode(0);
@@ -43,6 +46,46 @@ public class MergeKListsDemo {
             isEnd = midNode == null;
         }
         return head.next;
+    }
+
+
+    /**
+     * 归并的方式。
+     *
+     */
+    public ListNode mergeKListsV2(ListNode[] lists) {
+        if (lists.length == 0) {
+            return null;
+        }
+        return mergeLists(lists, 0, lists.length - 1);
+    }
+
+    private ListNode mergeLists(ListNode[] lists, int start, int end) {
+        if (start == end) {
+            return lists[start];
+        }
+        int mid = (start + end) / 2;
+        ListNode listNode = mergeLists(lists, start, mid);
+        ListNode listNode1 = mergeLists(lists, mid + 1, end);
+        return mergeListNode(listNode, listNode1);
+
+    }
+
+
+    private ListNode mergeListNode(ListNode head1, ListNode head2) {
+        ListNode preHead = new ListNode(0);
+        ListNode currentNode = preHead;
+        while (head1 != null || head2 != null) {
+            if (head2 == null || head1 != null && head1.val <= head2.val) {
+                currentNode.next = head1;
+                head1 = head1.next;
+            } else {
+                currentNode.next = head2;
+                head2 = head2.next;
+            }
+            currentNode = currentNode.next;
+        }
+        return preHead.next;
     }
 
 }
