@@ -1,4 +1,4 @@
-package memory;
+package dfs;
 
 import java.util.HashMap;
 import java.util.Map;
