@@ -5,7 +5,6 @@ package other;
  * <p>
  * https://leetcode-cn.com/problems/first-unique-character-in-a-string/
  */
-// TODO 下次
 public class FirstUniqCharDemo {
 
     public static void main(String[] args) {
