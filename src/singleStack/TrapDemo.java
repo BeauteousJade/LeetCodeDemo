@@ -24,15 +24,15 @@ public class TrapDemo {
 
             // 单调递减，遇到大的，需要计算。
             while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
-                int top = stack.pop();
+                int bottom = stack.pop();
                 if (stack.isEmpty()) {
                     break;
                 }
                 int left = stack.peek();
                 int width = i - left - 1;
                 // height[i] 可能会小于height[left], 所以需要取最小。
-                // Math.min(height[left], height[i]) 是定边，height[top]是底边。
-                int useHeight = Math.min(height[left], height[i]) - height[top];
+                // Math.min(height[left], height[i]) 是定边，height[bottom]是底边。
+                int useHeight = Math.min(height[left], height[i]) - height[bottom];
                 res += width * useHeight;
             }
 
