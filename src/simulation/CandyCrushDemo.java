@@ -7,7 +7,6 @@ import java.util.Arrays;
  * <p>
  * https://leetcode.cn/problems/candy-crush/
  */
-// TODO 下次
 public class CandyCrushDemo {
 
     public static void main(String[] args) {
