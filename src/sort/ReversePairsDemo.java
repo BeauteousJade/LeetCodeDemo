@@ -42,6 +42,8 @@ public class ReversePairsDemo {
                 nums[k] = tmp[leftStart++];
             } else {
                 nums[k] = tmp[rightStart++];
+                // 当前left ~ mid 已经排序好了，所以从leftStart 到mid 应该都大于 rightStart。
+                // 所以逆序对数量 等于 mid + 1 - leftStart.
                 res += mid - leftStart + 1; // 统计逆序对
             }
         }
