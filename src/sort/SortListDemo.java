@@ -44,26 +44,18 @@ public class SortListDemo {
     }
 
     private ListNode merge(ListNode head1, ListNode head2) {
-        ListNode head = new ListNode(0);
-        ListNode temp = head;
-        ListNode temp1 = head1;
-        ListNode temp2 = head2;
-        while (temp1 != null && temp2 != null) {
-            if (temp1.val < temp2.val) {
-                temp.next = temp1;
-                temp1 = temp1.next;
+        ListNode preHead = new ListNode(0);
+        ListNode currentNode = preHead;
+        while (head1 != null || head2 != null) {
+            if (head2 == null || head1 != null && head1.val <= head2.val) {
+                currentNode.next = head1;
+                head1 = head1.next;
             } else {
-                temp.next = temp2;
-                temp2 = temp2.next;
+                currentNode.next = head2;
+                head2 = head2.next;
             }
-            temp = temp.next;
+            currentNode = currentNode.next;
         }
-        // TODO 这里注意。
-        if (temp1 != null) {
-            temp.next = temp1;
-        } else if (temp2 != null) {
-            temp.next = temp2;
-        }
-        return head.next;
+        return preHead.next;
     }
 }
