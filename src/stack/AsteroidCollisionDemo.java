@@ -7,7 +7,6 @@ import java.util.Stack;
  * <p>
  * https://leetcode.cn/problems/asteroid-collision/
  */
-// TODO 下次
 public class AsteroidCollisionDemo {
 
     public static void main(String[] args) {
