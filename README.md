@@ -29,3 +29,4 @@
 > 26. [bucket](src/bucket) -- 桶
 > 27. [orderedSet](src/orderedSet) -- 有序集合
 > 28. [trie](src/trie) -- 字典树
+> 29. [fastPower](src/fastPower) -- 快速幂
