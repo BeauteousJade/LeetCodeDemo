@@ -15,9 +15,6 @@ public class LowestCommonAncestorDemo {
 
     // TODO pangbingyu 重点
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (p == null || q == null) {
-            return root;
-        }
         // 两个目标节点都在左节点，那就遍历左节点。
         if (p.val < root.val && q.val < root.val) {
             return lowestCommonAncestor(root.left, p, q);
