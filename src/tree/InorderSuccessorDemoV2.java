@@ -12,6 +12,9 @@ public class InorderSuccessorDemoV2 {
 
     }
 
+    /**
+     * https://leetcode.cn/problems/inorder-successor-in-bst-ii/solution/510-er-cha-sou-suo-shu-zhong-de-zhong-xu-hou-ji--2/
+     */
     public Node inorderSuccessor(Node node) {
         // 若node结点有右孩子，则它的后继在树中相对较低的位置。我们向右走一次，再尽可能的向左走，返回最后所在的结点。
         if (node.right != null) {
