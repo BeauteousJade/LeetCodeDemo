@@ -5,7 +5,6 @@ package tree;
  * <p>
  * https://leetcode.cn/problems/sum-root-to-leaf-numbers/
  */
-// TODO 下次
 public class SumNumbersDemo {
 
     public static void main(String[] args) {
@@ -13,26 +12,17 @@ public class SumNumbersDemo {
     }
 
     public int sumNumbers(TreeNode root) {
+        return dfs(root, 0);
+    }
+
+    public int dfs(TreeNode root, int prevSum) {
         if (root == null) {
             return 0;
         }
-        return dfs(0, root);
-    }
-
-
-    private int dfs(int value, TreeNode root) {
-        int res = 10 * value + root.val;
+        int sum = prevSum * 10 + root.val;
         if (root.left == null && root.right == null) {
-            return res;
+            return sum;
         }
-        int leftRes = 0;
-        if (root.left != null) {
-            leftRes = dfs(res, root.left);
-        }
-        int rightRes = 0;
-        if (root.right != null) {
-            rightRes = dfs(res, root.right);
-        }
-        return leftRes + rightRes;
+        return dfs(root.left, sum) + dfs(root.right, sum);
     }
 }
