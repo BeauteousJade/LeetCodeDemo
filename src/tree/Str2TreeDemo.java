@@ -18,40 +18,36 @@ public class Str2TreeDemo {
 
 
     public TreeNode str2tree(String s) {
-        if (s == null || s.length() == 0 || s.equals("()")) {
+        // 当字符串长度为0时，构造空结点
+        if (s.length() == 0) {
             return null;
         }
-//        System.out.println(s);
-        int rootEndIndex = s.length();
-        for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i) == '(') {
-                rootEndIndex = i;
-                break;
-            }
+        // 找到‘(’第一次出现的位置
+        int pos = s.indexOf("(");
+        // 如果没找到，说明字符串里不再包含子树信息，为叶子节点，用它来直接构并返回
+        if (pos == -1) {
+            return new TreeNode(Integer.parseInt(s));
         }
-        TreeNode root = new TreeNode(Integer.parseInt(s.substring(0, rootEndIndex)));
-        if (rootEndIndex != s.length()) {
-            int leftCount = 0;
-            int index = 0;
-            for (int i = rootEndIndex; i < s.length(); i++) {
-                char c = s.charAt(i);
-                if (c == '(') {
-                    leftCount++;
-                } else if (c == ')') {
-                    leftCount--;
-                    if (leftCount <= 0) {
-                        index = i;
-                        break;
-                    }
-                }
+        // 构建根节点
+        int rootVal = Integer.parseInt(s.substring(0, pos));
+        TreeNode root = new TreeNode(rootVal);
+        // 记录起始位置，从pos开始
+        int start = pos;
+        // 需要右括号的数量
+        int rightCount = 0;
+        for (int i = pos; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                rightCount++;
+            } else if (s.charAt(i) == ')') {
+                rightCount--;
             }
-
-            String leftString = rootEndIndex + 1 <= index ? s.substring(rootEndIndex + 1, index) : "";
-            String rightString = (!leftString.equals("")) && index + 2 <= s.length() - 1 ? s.substring(index + 2, s.length() - 1) : "";
-
-//            System.out.println("s = " + s + " left = " + leftString + " right = " + rightString);
-            root.left = str2tree(leftString);
-            root.right = str2tree(rightString);
+            // 当count 为0，且起始位置是从第一个'(' 开始的，那么就去构建左子树
+            if (rightCount == 0 && start == pos) {
+                root.left = str2tree(s.substring(start + 1, i));
+                start = i + 1;// 构建完之后更新起始位置
+            } else if (rightCount == 0 && start != pos) { // 如果起始位置不是第一次出现'(',就去构建右子树
+                root.right = str2tree(s.substring(start + 1, i));
+            }
         }
         return root;
     }
