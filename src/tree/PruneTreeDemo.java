@@ -11,31 +11,15 @@ public class PruneTreeDemo {
 
     }
 
-    private boolean isDelete;
-
     public TreeNode pruneTree(TreeNode root) {
-        TreeNode node = root;
-        while (true) {
-            isDelete = false;
-            node = deleteNode(node);
-            if (!isDelete) {
-                break;
-            }
-        }
-        return node;
-    }
-
-
-    private TreeNode deleteNode(TreeNode root) {
         if (root == null) {
             return null;
         }
+        root.left = pruneTree(root.left);
+        root.right = pruneTree(root.right);
         if (root.left == null && root.right == null && root.val == 0) {
-            isDelete = true;
             return null;
         }
-        root.left = deleteNode(root.left);
-        root.right = deleteNode(root.right);
         return root;
     }
 }
