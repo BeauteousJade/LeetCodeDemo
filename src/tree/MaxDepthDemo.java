@@ -7,7 +7,6 @@ import java.util.*;
  * <p>
  * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
  */
-// TODO 下次
 public class MaxDepthDemo {
 
     public static void main(String[] args) {
