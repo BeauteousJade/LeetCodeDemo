@@ -9,30 +9,31 @@ public class VerifyPreorderDemo {
 
     public static void main(String[] args) {
         VerifyPreorderDemo demo = new VerifyPreorderDemo();
-        System.out.println(demo.verifyPreorder(new int[]{5, 2, 6, 1, 3}));
+        System.out.println(demo.verifyPreorder(new int[]{1,3,4,2}));
     }
 
     public boolean verifyPreorder(int[] preorder) {
-        return helper(preorder, 0, preorder.length - 1, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return helper(preorder, 0, preorder.length - 1);
     }
 
 
-    private boolean helper(int[] array, int left, int right, int min, int max) {
-        if (left >= array.length || left > right) {
+    private boolean helper(int[] array, int left, int right) {
+        if (left > right) {
             return true;
         }
-        // 可以不需要这个条件。加上这个条件，时间复杂度低一些。
-        if (left == right) {
-            return array[left] > min && array[right] < max;
-        }
+        // 前序遍历。那么第一个就是root.
         int root = left;
-        if (array[root] <= min || array[root] >= max) {
-            return false;
+        int index = left + 1;
+        // 1. 先找到左节点。左节点都小于root.
+        while (index <= right && array[index] < array[root]) {
+            index++;
         }
-        int newLeft = left + 1;
-        while (newLeft < array.length && array[newLeft] < array[root]) {
-            newLeft++;
+        // 2. 再找到右节点，右节点都大于root.
+        int m = index;
+        while (index <= right && array[index] > array[root]) {
+            index++;
         }
-        return helper(array, left + 1, newLeft - 1, min, array[root]) && helper(array, newLeft, right, array[root], max);
+        // 3. 如果合法二叉搜索数，那么index最后肯定等于root + 1
+        return index == right + 1 && helper(array, left + 1, m - 1) && helper(array, m, right);
     }
 }
