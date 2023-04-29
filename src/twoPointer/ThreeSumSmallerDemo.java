@@ -31,6 +31,7 @@ public class ThreeSumSmallerDemo {
         while (left < right) {
             int sum = nums[left] + nums[right];
             if (sum < target) {
+                // 一共有right - left组。分别是(left, left + 1).. (left, right);
                 count += right - left;
                 left++;
             } else {
