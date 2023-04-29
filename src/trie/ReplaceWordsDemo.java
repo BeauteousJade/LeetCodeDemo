@@ -62,9 +62,11 @@ public class ReplaceWordsDemo {
             TreeNode node = root;
             for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
+                // 是word的前缀，返回前缀(即前面插入的词根)。
                 if (node.isEnd) {
                     return stringBuilder.toString();
                 }
+                // 不是前缀，返回原有单词
                 if (node.child[c - 'a'] == null) {
                     return word;
                 }
