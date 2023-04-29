@@ -52,7 +52,7 @@ public class MinimumLengthEncodingDemo {
                     node.children[c - 'a'] = new Trie();
                     // 记录已当前字符串为后缀有多少个单词。
                     // 如果一个单词后缀node为0，表示它不属于别的单词后缀，即不能省略。
-                    // 如果一个单词后缀node不为0，表示不属于别的单词后缀，即能省略。
+                    // 如果一个单词后缀node不为0，表示属于别的单词后缀，即能省略。
                     node.count++;
                 }
                 node = node.children[c - 'a'];
