@@ -18,13 +18,28 @@ public class MissingNumberDemo {
     public int missingNumber(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
-        while (left <= right) {
+        while (left < right) {
             int mid = (left + right) / 2;
             // 如果当前值等于 mid，表示丢失的数字在右侧。
             if (nums[mid] == mid) {
                 left = mid + 1;
             } else {
-                right = mid - 1;
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    public int missingNumberV2(int[] nums) {
+        int left = 0;
+        int right = nums.length;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            // 如果当前值等于 mid，表示丢失的数字在右侧。
+            if (nums[mid] == mid) {
+                left = mid + 1;
+            } else {
+                right = mid;
             }
         }
         return left;
