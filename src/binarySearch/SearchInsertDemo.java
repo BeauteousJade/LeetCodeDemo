@@ -30,4 +30,18 @@ public class SearchInsertDemo {
         // 3. target 在最小值和最大值之前，那么left就是在比target 最接近的大值上。
         return left;
     }
+
+    public int searchInsertV2(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] >= target) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
 }
