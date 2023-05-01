@@ -20,13 +20,14 @@ public class DepthSumInverseDemo {
 
 
     private int getDepth(List<NestedInteger> list) {
-        int res = 0;
+        // 过滤无效嵌套的情况，例如：[[1,1],2,[1,1],[[[[]]]]]
+        if (list.size() == 0) {
+            return 0;
+        }
+        int res = 1;
         for (NestedInteger integer : list) {
             if (!integer.isInteger()) {
                 res = Math.max(res, 1 + getDepth(integer.getList()));
-            } else {
-                // 过滤无效嵌套的情况，例如：[[1,1],2,[1,1],[[[[]]]]]
-                res = Math.max(res, 1);
             }
         }
         return res;
