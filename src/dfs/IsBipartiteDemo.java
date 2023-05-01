@@ -34,12 +34,8 @@ public class IsBipartiteDemo {
         for (int neighbor : graph[node]) {
             if (colors[neighbor] == def) {
                 dfs(neighbor, nextColor, graph);
-                if (!isValid) {
-                    return;
-                }
             } else if (colors[neighbor] != nextColor) {
                 isValid = false;
-                return;
             }
         }
     }
