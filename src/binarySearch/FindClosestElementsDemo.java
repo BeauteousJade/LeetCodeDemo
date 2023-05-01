@@ -84,6 +84,9 @@ public class FindClosestElementsDemo {
         return ans;
     }
 
+    /**
+     * 找到第一个比X大的数字。
+     */
     public int binarySearch(int[] arr, int x) {
         int low = 0, high = arr.length - 1;
         while (low < high) {
