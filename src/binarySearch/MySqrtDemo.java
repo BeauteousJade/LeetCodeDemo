@@ -24,4 +24,18 @@ public class MySqrtDemo {
         }
         return left - 1;
     }
+
+    public int mySqrtV2(int x) {
+        int left = 0;
+        int right = x;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if ((long) mid * mid >= x) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return left * left == x ? left : left - 1;
+    }
 }
