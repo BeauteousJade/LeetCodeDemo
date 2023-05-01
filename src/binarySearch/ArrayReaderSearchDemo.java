@@ -57,6 +57,24 @@ public class ArrayReaderSearchDemo {
         return -1;
     }
 
+    public int searchV3(ArrayReader reader, int target) {
+        int left = 0;
+        int right = (int) Math.pow(10, 4);
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int value = reader.get(mid);
+            if (value == target) {
+                return mid;
+            }
+            if (value < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
+    }
+
     private static class ArrayReaderImpl implements ArrayReader {
 
         private final int[] array;
