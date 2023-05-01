@@ -1,6 +1,8 @@
 package dfs;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 505. 迷宫 II
@@ -23,7 +25,7 @@ public class HasPathDemoV2 {
             Arrays.fill(temp, Integer.MAX_VALUE);
         }
         array[start[0]][start[1]] = 0;
-        dfs(maze, start, array);
+        bfs(maze, start, array);
         return array[destination[0]][destination[1]] == Integer.MAX_VALUE ? -1 : array[destination[0]][destination[1]];
     }
 
@@ -44,6 +46,29 @@ public class HasPathDemoV2 {
             if (distance[start[0]][start[1]] + count < distance[x - dir[0]][y - dir[1]]) {
                 distance[x - dir[0]][y - dir[1]] = distance[start[0]][start[1]] + count;
                 dfs(maze, new int[]{x - dir[0], y - dir[1]}, distance);
+            }
+        }
+    }
+
+    private void bfs(int[][] maze, int[] start, int[][] distance) {
+        int[][] dirs = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(start);
+        while (!queue.isEmpty()) {
+            int[] array = queue.remove();
+            for (int[] dir : dirs) {
+                int x = array[0] + dir[0];
+                int y = array[1] + dir[1];
+                int count = 0;
+                while (x >= 0 && y >= 0 && x < maze.length && y < maze[0].length && maze[x][y] == 0) {
+                    x += dir[0];
+                    y += dir[1];
+                    count++;
+                }
+                if (distance[array[0]][array[1]] + count < distance[x - dir[0]][y - dir[1]]) {
+                    distance[x - dir[0]][y - dir[1]] = distance[array[0]][array[1]] + count;
+                    queue.offer(new int[]{x - dir[0], y - dir[1]});
+                }
             }
         }
     }
