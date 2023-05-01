@@ -24,4 +24,18 @@ public class PeakIndexInMountainArrayDemo {
         }
         return right;
     }
+
+    public int peakIndexInMountainArrayV2(int[] arr) {
+        int left = 0;
+        int right = arr.length - 2;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (arr[mid] >= arr[mid + 1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
 }
