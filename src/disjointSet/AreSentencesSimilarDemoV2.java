@@ -7,7 +7,6 @@ import java.util.*;
  * <p>
  * https://leetcode.cn/problems/sentence-similarity-ii/?favorite=qg88wci
  */
-// TODO 下次
 public class AreSentencesSimilarDemoV2 {
 
 
