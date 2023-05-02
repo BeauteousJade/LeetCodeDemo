@@ -14,12 +14,12 @@ public class ClimbStairsDemo {
     }
 
     public int climbStairs(int n) {
-        int p = 0, q = 0, r = 1;
+        int pre = 0, current = 0, next = 1;
         for (int i = 1; i <= n; ++i) {
-            p = q;
-            q = r;
-            r = p + q;
+            pre = current;
+            current = next;
+            next = pre + current;
         }
-        return r;
+        return next;
     }
 }
