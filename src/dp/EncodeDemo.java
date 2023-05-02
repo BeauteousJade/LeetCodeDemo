@@ -56,6 +56,6 @@ public class EncodeDemo {
 
         }
 
-        return s;
+        return newS;
     }
 }
