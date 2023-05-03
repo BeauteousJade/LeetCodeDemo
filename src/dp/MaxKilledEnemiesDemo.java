@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 361. 轰炸敌人
  * <p>
- * https://leetcode.cn/problems/bomb-enemy/submissions/
+ * https://leetcode.cn/problems/bomb-enemy/
  */
 public class MaxKilledEnemiesDemo {
 
