@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 /**
  * 62. 不同路径
  * <p>
@@ -29,5 +31,19 @@ public class UniquePathsDemo {
         }
 
         return dp[m - 1][n - 1];
+    }
+
+    /**
+     * 压缩空间
+     */
+    public int uniquePathsV2(int m, int n) {
+        int[] cur = new int[n];
+        Arrays.fill(cur,1);
+        for (int i = 1; i < m;i++){
+            for (int j = 1; j < n; j++){
+                cur[j] += cur[j-1] ;
+            }
+        }
+        return cur[n-1];
     }
 }
