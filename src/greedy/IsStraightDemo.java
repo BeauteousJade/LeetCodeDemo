@@ -7,6 +7,7 @@ import java.util.Arrays;
  * <p>
  * https://leetcode.cn/problems/bu-ke-pai-zhong-de-shun-zi-lcof/
  */
+// TODO 下次
 public class IsStraightDemo {
 
     public static void main(String[] args) {
