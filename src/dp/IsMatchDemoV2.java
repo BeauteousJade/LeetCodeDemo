@@ -44,7 +44,7 @@ public class IsMatchDemoV2 {
     }
 
     private boolean match(char c1, char c2) {
-        if (c1 == '?' || c2 == '?') {
+        if (c2 == '?') {
             return true;
         }
         return c1 == c2;
