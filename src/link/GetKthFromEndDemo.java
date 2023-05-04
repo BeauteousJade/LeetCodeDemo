@@ -29,4 +29,23 @@ public class GetKthFromEndDemo {
             res = head;
         }
     }
+
+
+    public ListNode getKthFromEndV2(ListNode head, int k) {
+        ListNode fast = head;
+        ListNode slow = head;
+        int count = 0;
+        while (count < k) {
+            if (fast == null) {
+                return null;
+            }
+            fast = fast.next;
+            count++;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
 }
