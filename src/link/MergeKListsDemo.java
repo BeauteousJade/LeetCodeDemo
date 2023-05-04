@@ -61,6 +61,9 @@ public class MergeKListsDemo {
     }
 
     private ListNode mergeLists(ListNode[] lists, int start, int end) {
+        if (start > end) {
+            return null;
+        }
         if (start == end) {
             return lists[start];
         }
@@ -68,9 +71,7 @@ public class MergeKListsDemo {
         ListNode listNode = mergeLists(lists, start, mid);
         ListNode listNode1 = mergeLists(lists, mid + 1, end);
         return mergeListNode(listNode, listNode1);
-
     }
-
 
     private ListNode mergeListNode(ListNode head1, ListNode head2) {
         ListNode preHead = new ListNode(0);
