@@ -25,6 +25,7 @@ public class ReverseKGroupDemo {
                 }
             }
             ListNode next = tail.next;
+            tail.next = null;
             ListNode[] listNodes = reverse(head, tail);
             head = listNodes[0];
             tail = listNodes[1];
@@ -39,13 +40,13 @@ public class ReverseKGroupDemo {
     }
 
     private ListNode[] reverse(ListNode head, ListNode tail) {
-        ListNode pre = tail.next;
-        ListNode p = head;
-        while (pre != tail) {
-            ListNode next = p.next;
-            p.next = pre;
-            pre = p;
-            p = next;
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
         return new ListNode[]{tail, head};
     }
