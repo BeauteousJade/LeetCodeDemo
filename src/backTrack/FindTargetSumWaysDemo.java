@@ -37,7 +37,7 @@ public class FindTargetSumWaysDemo {
      * 正数:sum1
      * 负数：sum2
      * sum = sum1 + sum2
-     * sum - sum2 = target = sum - 2 * sum2
+     * sum1 - sum2 = target = sum - 2 * sum2
      * sum2 = (sum - target) / 2
      */
     public int findTargetSumWaysV2(int[] nums, int target) {
@@ -47,6 +47,7 @@ public class FindTargetSumWaysDemo {
         }
         int diff = (sum - target) / 2;
         int m = nums.length;
+        // dp[i][j]:前i个数，和是否为j.
         int[][] dp = new int[m + 1][diff + 1];
         dp[0][0] = 1;
         for (int i = 1; i <= m; i++) {
