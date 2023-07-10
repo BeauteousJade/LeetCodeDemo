@@ -5,7 +5,6 @@ package dp;
  * <p>
  * https://leetcode.cn/problems/min-cost-climbing-stairs/
  */
-// TODO 下次
 public class MinCostClimbingStairsDemo {
 
     public static void main(String[] args) {
