@@ -79,8 +79,8 @@ public class FindMaxConsecutiveOnesDemo {
      */
     public int findMaxConsecutiveOnesV3(int[] nums) {
         int n = nums.length;
-        int dp0 = 0;
-        int dp1 = 0;
+        int dp0 = 0; // 未变化
+        int dp1 = 0; // 变化过
         int ans = 0;
         for (int i = 0; i < n; i++) {
             if (nums[i] == 1) {
