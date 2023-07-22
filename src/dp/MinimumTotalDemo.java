@@ -1,6 +1,8 @@
 package dp;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * 120. 三角形最小路径和
@@ -10,7 +12,10 @@ import java.util.List;
 public class MinimumTotalDemo {
 
     public static void main(String[] args) {
-
+        int[][] array = {{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}};
+        List<List<Integer>> list = Arrays.stream(array).map(ints -> Arrays.stream(ints).boxed().toList()).toList();
+        MinimumTotalDemo demo = new MinimumTotalDemo();
+        System.out.println(demo.minimumTotal(list));
     }
 
     public int minimumTotal(List<List<Integer>> triangle) {
